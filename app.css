@@ -9,9 +9,9 @@ td {font-family: arial; font-size: small; width: 230}
 #map {
     height: 65%;
     width: 100%;
+    margin-bottom: 5px;
 }
 
-#installation {
-    height: 35%;
-    width: 100%;
+#sectors {
+    margin-bottom: 20px;
 }
