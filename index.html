@@ -1,187 +1,88 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
     <title>Gatineau Ouverte - Parcs et Espaces Verts</title>
     
-    <!--body {
-   		background-color:white;
-   		font-family:Tahoma;
-   		font-size: 9pt
-   	  }-->
-      
-	<style type="text/css"> 
-		body {
-   			background-color:white;
-   			font-family:Tahoma;
-   			font-size: small
-   	  	}
-   	  
-   	  	td {font-family: arial; font-size: small; width: 230}
-      
-      	#map {
-        	height: 65%;
-        	width: 100%;
-        }
-      
-      	#installation {
-      		height: 35%;
-        	width: 100%;
-      	}
-	</style> 
+    <link href="app.css" rel="stylesheet" type="text/css">
     
-    <script src="http://maps.google.com/maps/api/js?sensor=false"
-            type="text/javascript"></script>
-    <script type="text/javascript">
-    //<![CDATA[
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+</head>
 
-    var customIcons = {
-    	parc: {
-        	icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',
-       		shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
-      	},
-      
-      	other: {
-        	icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
-        	shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
-      	}
-	};
-
-    function load() {
-		var map = new google.maps.Map(document.getElementById("map"), {
-        	center: new google.maps.LatLng(45.486740, -75.633217),
-        	zoom: 11,
-        	mapTypeId: 'roadmap'
-      	});
-      
-	var infoWindow = new google.maps.InfoWindow;
-
-	// Change this depending on the name of your PHP file
-	downloadUrl("phpsqlajax_genxml3.php", function(data) {
-		var xml = data.responseXML;
-        var markers = xml.documentElement.getElementsByTagName("marker");
-        for (var i = 0; i < markers.length; i++) {
-        	var name = markers[i].getAttribute("name");
-          	var address = markers[i].getAttribute("address");
-          	var type = markers[i].getAttribute("type");
-          	var installation = markers[i].getAttribute("installation");
-          	var point = new google.maps.LatLng(
-              	parseFloat(markers[i].getAttribute("lat")),
-              	parseFloat(markers[i].getAttribute("lng")));
-          	var html = "<b>" + name + "</b><br>" + address + "<br><br>" + installation;
-          	var icon = customIcons[type] || {};
-          	var marker = new google.maps.Marker({
-            	map: map,
-            	position: point,
-            	icon: icon.icon,
-            	shadow: icon.shadow
-          	});
-          	bindInfoWindow(marker, map, infoWindow, html);
-        	}
-      	});
-    }
-
-    function bindInfoWindow(marker, map, infoWindow, html) {
-    	google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent(html);
-        infoWindow.open(map, marker);
-      });
-    }
-
-    function downloadUrl(url, callback) {
-    	var request = window.ActiveXObject ?
-        new ActiveXObject('Microsoft.XMLHTTP') :
-        new XMLHttpRequest;
-
-      	request.onreadystatechange = function() {
-        	if (request.readyState == 4) {
-          		request.onreadystatechange = doNothing;
-          		callback(request, request.status);
-      		}
-		};
-		request.open('GET', url, true);
-      	request.send(null);
-   	}
-
-    function doNothing() {}
-
-    //]]>
-  </script>
- </head>
-
-<body onload="load()" style="">
-	<img src="gatineauouverte.png" alt="wow3" width="180" height="70" />
-    <div id="map"></div>
-    <div id="installation">
-   	
-   	<form name="sector" action="" method="post">
-   	<table border="0">
-    <tr>
-   		<td1><input type="checkbox" name="sector" value="Aylmer"/> Aylmer</td>
-    	<td1><input type="checkbox" name="sector" value="Buckingham"/> Buckingham</td>
-    	<td1><input type="checkbox" name="sector" value="Gatineau"/> Gatineau</td>
-		<td1><input type="checkbox" name="sector" value="Hull"/> Hull</td>
-    	<td1><input type="checkbox" name="sector" value="Masson-Angers"/> Masson-Angers</td>
-    </tr>
-    </table>
-    </form>
+<body onload="App.init()">
+	<img src="gatineauouverte.png" alt="wow3" width="180" height="70"/>
     
-    <br>
-    <form name="check" action="*.php" method="post">
-    <table border="0">
-    <tr>
-    	<td><input type="checkbox" name="installation" value="Aréna"/> Aréna</td>
-    	<td><input type="checkbox" name="installation" value="Chalet utilitaire"/> Chalet utilitaire</td>
-    	<td><input type="checkbox" name="installation" value="Gradin"/> Gradin</td>
-    	<td><input type="checkbox" name="installation" value="Patinoire extérieure"/> Patinoire extérieure</td>
-    	<td><input type="checkbox" name="installation" value="Préau"/> Préau</td>
-    	<td><input type="checkbox" name="installation" value="Terrain de baseball"/> Terrain de baseball</td>
-    </tr>
-	<tr>
-		<td><input type="checkbox" name="installation" value="Balancoires pour bébés"/> Balancoires pour bébés</td>
-		<td><input type="checkbox" name="installation" value="Courts de tennis"/> Courts de tennis</td>
-		<td><input type="checkbox" name="installation" value="Jeux d'eau"/> Jeux d'eau</td>
-		<td><input type="checkbox" name="installation" value="Pétanque"/> Pétanque</td>
-		<td><input type="checkbox" name="installation" value="Ski de fond"/> Ski de fond</td>
-		<td><input type="checkbox" name="installation" value="Terrain de hockey-ball"/> Terrain de hockey-ball</td>
-	</tr>
-	<tr>
-		<td><input type="checkbox" name="installation" value="Balancoires pour enfants"/> Balancoires pour enfants</td>
-		<td><input type="checkbox" name="installation" value="Croquet"/> Croquet</td>
-		<td><input type="checkbox" name="installation" value="Marina"/> Marina</td>
-		<td><input type="checkbox" name="installation" value="Piscine extérieure"/> Piscine extérieure</td>
-		<td><input type="checkbox" name="installation" value="Structure de jeu pour les 2-5 ans"/> Structure de jeu pour les 2-5 ans</td>
-		<td><input type="checkbox" name="installation" value="Terrain de planches à roulette"/> Terrain de planches à roulette</td>
-	</tr>
-	<tr>
-		<td><input type="checkbox" name="installation" value="Ballon-panier"/> Ballon-panier</td>
-		<td><input type="checkbox" name="installation" value="Espaces de caravaning"/> Espaces de caravaning</td>
-		<td><input type="checkbox" name="installation" value="Mini-putt"/> Mini-putt</td>
-		<td><input type="checkbox" name="installation" value="Piscine intérieure"/> Piscine intérieure</td>
-		<td><input type="checkbox" name="installation" value="Structure de jeu pour les 5-12 ans"/> Structure de jeu pour les 5-12 ans</td>
-		<td><input type="checkbox" name="installation" value="Terrain de soccer"/> Terrain de soccer</td>
-	</tr>
-	<tr>
-		<td><input type="checkbox" name="installation" value="Bancs publics"/> Bancs publics</td>
-		<td><input type="checkbox" name="installation" value="Fer à cheval"/> Fer à cheval</td>
-		<td><input type="checkbox" name="installation" value="Murs graffitis"/> Murs graffitis</td>
-		<td><input type="checkbox" name="installation" value="Piste d'athlétisme"/> Piste d'athlétisme</td>
-		<td><input type="checkbox" name="installation" value="Support à vélo"/> Support à vélo</td>
-		<td><input type="checkbox" name="installation" value="Terrain de volleyball"/> Terrain de volleyball</td>
-	</tr>
-	<tr>
-		<td><input type="checkbox" name="installation" value="Centre communautaire"/> Centre communautaire</td>
-		<td><input type="checkbox" name="installation" value="Galet"/> Galet</td>
-		<td><input type="checkbox" name="installation" value="Pataugeoire extérieure"/> Pataugeoire extérieure</td>
-		<td><input type="checkbox" name="installation" value="Plage"/> Plage</td>
-		<td><input type="checkbox" name="installation" value="Tables de pique-nique"/> Tables de pique-nique</td>
-		<td><input type="checkbox" name="installation" value="Tir à l'arc"/> Tir à l'arc</td>
-	</tr>
-	<tr>
-		<td><input type="checkbox" name="installation" value="Chalet de service"/> Chalet de service</td>
-		<td><input type="checkbox" name="installation" value="Glissade/tobogan"/> Glissade/tobogan</td>
-	</tr>
-	</table>
-	</form>
+	<!--
+	<div id="searchbar">
+		Rechercher <input id="search-input" type="text">
 	</div>
- </body>
+	-->
+	
+	<div id="map"></div>
+    
+	<div id="sectors">
+		<input type="checkbox" name="sector" value="Aylmer"/> Aylmer
+		<input type="checkbox" name="sector" value="Buckingham"/> Buckingham
+		<input type="checkbox" name="sector" value="Gatineau"/> Gatineau
+		<input type="checkbox" name="sector" value="Hull"/> Hull
+		<input type="checkbox" name="sector" value="Masson-Angers"/> Masson-Angers
+	</div>
+		
+	<table id="installations" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><input type="checkbox" name="installation" value="Aréna"/> Aréna</td>
+			<td><input type="checkbox" name="installation" value="Chalet utilitaire"/> Chalet utilitaire</td>
+			<td><input type="checkbox" name="installation" value="Gradin"/> Gradin</td>
+			<td><input type="checkbox" name="installation" value="Patinoire extérieure"/> Patinoire extérieure</td>
+			<td><input type="checkbox" name="installation" value="Préau"/> Préau</td>
+			<td><input type="checkbox" name="installation" value="Terrain de baseball"/> Terrain de baseball</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="installation" value="Balancoires pour bébés"/> Balancoires pour bébés</td>
+			<td><input type="checkbox" name="installation" value="Courts de tennis"/> Courts de tennis</td>
+			<td><input type="checkbox" name="installation" value="Jeux d'eau"/> Jeux d'eau</td>
+			<td><input type="checkbox" name="installation" value="Pétanque"/> Pétanque</td>
+			<td><input type="checkbox" name="installation" value="Ski de fond"/> Ski de fond</td>
+			<td><input type="checkbox" name="installation" value="Terrain de hockey-ball"/> Terrain de hockey-ball</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="installation" value="Balancoires pour enfants"/> Balancoires pour enfants</td>
+			<td><input type="checkbox" name="installation" value="Croquet"/> Croquet</td>
+			<td><input type="checkbox" name="installation" value="Marina"/> Marina</td>
+			<td><input type="checkbox" name="installation" value="Piscine extérieure"/> Piscine extérieure</td>
+			<td><input type="checkbox" name="installation" value="Structure de jeu pour les 2-5 ans"/> Structure de jeu pour les 2-5 ans</td>
+			<td><input type="checkbox" name="installation" value="Terrain de planches à roulette"/> Terrain de planches à roulette</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="installation" value="Ballon-panier"/> Ballon-panier</td>
+			<td><input type="checkbox" name="installation" value="Espaces de caravaning"/> Espaces de caravaning</td>
+			<td><input type="checkbox" name="installation" value="Mini-putt"/> Mini-putt</td>
+			<td><input type="checkbox" name="installation" value="Piscine intérieure"/> Piscine intérieure</td>
+			<td><input type="checkbox" name="installation" value="Structure de jeu pour les 5-12 ans"/> Structure de jeu pour les 5-12 ans</td>
+			<td><input type="checkbox" name="installation" value="Terrain de soccer"/> Terrain de soccer</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="installation" value="Bancs publics"/> Bancs publics</td>
+			<td><input type="checkbox" name="installation" value="Fer à cheval"/> Fer à cheval</td>
+			<td><input type="checkbox" name="installation" value="Murs graffitis"/> Murs graffitis</td>
+			<td><input type="checkbox" name="installation" value="Piste d'athlétisme"/> Piste d'athlétisme</td>
+			<td><input type="checkbox" name="installation" value="Support à vélo"/> Support à vélo</td>
+			<td><input type="checkbox" name="installation" value="Terrain de volleyball"/> Terrain de volleyball</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="installation" value="Centre communautaire"/> Centre communautaire</td>
+			<td><input type="checkbox" name="installation" value="Galet"/> Galet</td>
+			<td><input type="checkbox" name="installation" value="Pataugeoire extérieure"/> Pataugeoire extérieure</td>
+			<td><input type="checkbox" name="installation" value="Plage"/> Plage</td>
+			<td><input type="checkbox" name="installation" value="Tables de pique-nique"/> Tables de pique-nique</td>
+			<td><input type="checkbox" name="installation" value="Tir à l'arc"/> Tir à l'arc</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="installation" value="Chalet de service"/> Chalet de service</td>
+			<td><input type="checkbox" name="installation" value="Glissade/tobogan"/> Glissade/tobogan</td>
+		</tr>
+	</table>
+		
+</body>
 </html>
