@@ -36,7 +36,7 @@ header("Content-Type: application/json; charset=utf8");
         'lat'=>$row['lat'],
         'lng'=>$row['lng'],
         'type'=>$row['type'],
-        'installation'=>$row['installation'],
+        'installations'=>$row['installation'],
         );
     }
     echo json_encode($arr);
