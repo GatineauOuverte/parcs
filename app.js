@@ -24,7 +24,7 @@ App = (function () {
             }
         };
         request.open('GET', url, true);
-        request.send(null);
+        request.send('');
     }
     
     function getMarkers(criterias, callback) {
@@ -145,7 +145,7 @@ App = (function () {
             
             infoWindow = new google.maps.InfoWindow();
             
-            search(null);
+            search('');
             
             installHandlers();
         }
