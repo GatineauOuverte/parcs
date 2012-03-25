@@ -20,3 +20,9 @@ td {font-family: arial; font-size: small; width: 230}
 #sectors {
     margin-bottom: 20px;
 }
+
+#searchbar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}

@@ -11,6 +11,7 @@ App = (function () {
             }
         },
         activeMarkers = [],
+        searchInput,
         map, infoWindow;
         
     function ajax(url, callback) {
@@ -100,6 +101,7 @@ App = (function () {
     }
     
     function installHandlers() {
+        
         on(document, 'click', function (e) {
             var target = e.target;
             
@@ -109,6 +111,15 @@ App = (function () {
             
             search(buildCriterias());
         });
+        
+        //TODO: Free-text search function
+        /*
+        on(searchInput, 'keypress', function (e) {
+            if (e.keyCode && e.keyCode === 13) {
+                search(buildCriterias() + '&query=' + searchInput.value);
+            }
+        });
+        */
     }
     
     function buildCriterias() {
@@ -151,6 +162,8 @@ App = (function () {
             infoWindow = new google.maps.InfoWindow();
             
             search('');
+            
+            searchInput = document.getElementById('search-input');
             
             installHandlers();
         }
