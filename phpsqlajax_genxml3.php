@@ -48,7 +48,7 @@ if ($get_query) {
   if ($get_installation){
     $installations = explode(",", $_GET['installations']);
     for ($i = 0; $i <= count($installations)-1 ; $i++){   
-      $criterias = $criterias.' AND mi.installation=\''.$installations[$i].'\' ';
+      $criterias = $criterias.' AND m.installation LIKE \'%'.$installations[$i].'%\' ';
     }
   }
   
@@ -60,7 +60,7 @@ if ($get_query) {
   }
 
 }
-
+//echo $query;
 mysql_query("SET NAMES utf8");
 
 $result = mysql_query($query);
