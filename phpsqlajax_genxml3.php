@@ -62,7 +62,7 @@ if (!$result) {
 } 
 
 
-header("Content-Type: application/json; charset=utf8");
+header("Content-Type: application/json; charset=utf-8");
 
 $arr = array();
 while ($row = @mysql_fetch_assoc($result)){

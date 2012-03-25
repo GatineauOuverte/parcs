@@ -1,7 +1,12 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     background-color:white;
     font-family:Tahoma;
-    font-size: small
+    font-size: small;
 }
 
 td {font-family: arial; font-size: small; width: 230}

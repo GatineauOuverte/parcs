@@ -27,6 +27,11 @@ App = (function () {
         request.send('');
     }
     
+    function on(el, eventName, handler) {
+        var hasAddEventListener = !!window.addEventListener;
+        el[hasAddEventListener? 'addEventListener' : 'attachEvent']((hasAddEventListener? '' : 'on') + eventName, handler);
+    }
+    
     function getMarkers(criterias, callback) {
         criterias = criterias || '';
         
@@ -95,7 +100,7 @@ App = (function () {
     }
     
     function installHandlers() {
-        document.addEventListener('click', function (e) {
+        on(document, 'click', function (e) {
             var target = e.target;
             
             if (!target || target.type !== 'checkbox') {
