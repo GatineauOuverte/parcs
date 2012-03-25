@@ -27,22 +27,20 @@ if (!$result) {
   die('Invalid query: ' . mysql_error());
 } 
 
-header("Content-Type: text/xml; charset=utf8");
+header("Content-Type: application/json; charset=utf8");
 
-// Iterate through the rows, adding XML nodes for each
-while ($row = @mysql_fetch_assoc($result)){  
-  // ADD TO XML DOCUMENT NODE  
-  $node = $dom->createElement("marker");  
-  $newnode = $parnode->appendChild($node);   
-  $newnode->setAttribute("name",$row['name']);
-  $newnode->setAttribute("address", $row['address']);  
-  $newnode->setAttribute("lat", $row['lat']);  
-  $newnode->setAttribute("lng", $row['lng']);  
-  $newnode->setAttribute("type", $row['type']);
-  $newnode->setAttribute("installation", $row['installation']);
-} 
-echo $dom->saveXML($dom->documentElement);
-
+ while ($row = @mysql_fetch_assoc($result)){
+        $arr[]=array(
+        'name'=>$row['name'],
+        'address'=>$row['address'],
+        'lat'=>$row['lat'],
+        'lng'=>$row['lng'],
+        'type'=>$row['type'],
+        'installation'=>$row['installation'],
+        );
+    }
+    echo json_encode($arr);
+  
 mysql_close($connection);
 
 ?>
