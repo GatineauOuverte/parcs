@@ -40,12 +40,17 @@ App = (function () {
             callback(JSON.parse(request.responseText), status);
         });
     }
-
-    function bindInfoWindow(marker, html) {
-        google.maps.event.addListener(marker, 'click', function() {
-            infoWindow.setContent(html);
-            infoWindow.open(map, marker);
-        });
+    
+    function onMarkerClick() {
+        var data = this._data;
+        
+        infoWindow.setContent([
+            '<b>', data.name, '</b><br>',
+            data.address, '<br>',
+            data.installations
+        ].join(''));
+        
+        infoWindow.open(map, this);
     }
     
     function addMarkers(markers) {
@@ -68,21 +73,24 @@ App = (function () {
                 shadow: icon.shadow
             });
             
-            mapMarker.installations = marker.installations;
-            
             activeMarkers.push(mapMarker);
             
-            bindInfoWindow(mapMarker, [
-                '<b>', marker.name, '</b><br>',
-                marker.address, '<br>',
-                marker.installations
-            ].join(''));
+            mapMarker._data = marker;
+            
+            google.maps.event.addListener(mapMarker, 'click', onMarkerClick);
         }
     }
     
     function removeAllMarkers() {
-        for (var i = 0, len = activeMarkers.length; i < len; i++) {
-            activeMarkers[i].setMap(null);
+        var event = google.maps.event,
+            i = activeMarkers.length - 1,
+            marker;
+        
+        while (i >= 0) {
+            (marker = activeMarkers[i]).setMap(null);
+            event.clearInstanceListeners(marker);
+            activeMarkers.splice(i, 1);
+            i--;
         }
     }
     
@@ -100,7 +108,7 @@ App = (function () {
         getMarkers(criterias, onMarkersLoad);
     }
     
-    function installHandlers() {
+    function installDOMListeners() {
         
         on(document, 'click', function (e) {
             var target = e.target;
@@ -163,9 +171,9 @@ App = (function () {
             
             search('');
             
-            searchInput = document.getElementById('search-input');
+            //searchInput = document.getElementById('search-input');
             
-            installHandlers();
+            installDOMListeners();
         }
     };
 })();
