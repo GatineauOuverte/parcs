@@ -1,5 +1,11 @@
 App = (function () {
-    var customIcons = {
+    "use strict";
+    
+    var GMAP = google.maps,
+        GMAP_MARKER = GMAP.Marker,
+        GMAP_EVENT = GMAP.event,
+        GMAP_LAT_LNG = GMAP.LatLng,
+        customIcons = {
             parc: {
                 icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',
                 shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
@@ -25,7 +31,7 @@ App = (function () {
             }
         };
         request.open('GET', url, true);
-        request.send('');
+        request.send();
     }
     
     function on(el, eventName, handler) {
@@ -54,22 +60,17 @@ App = (function () {
     }
     
     function addMarkers(markers) {
-        var mapMarker, point, marker, icon;
+        var mapMarker, marker, icon;
          
         for (var i = 0, len = markers.length; i < len; i++) {
-            marker = markers[i];
             
-            point = new google.maps.LatLng(
-                parseFloat(marker.lat),
-                parseFloat(marker.lng)
-            );
-            
-            icon = customIcons[marker.type] || {};
-            
-            mapMarker = new google.maps.Marker({
+            mapMarker = new GMAP_MARKER({
                 map: map,
-                position: point,
-                icon: icon.icon,
+                position: new GMAP_LAT_LNG(
+                    parseFloat((marker = markers[i]).lat),
+                    parseFloat(marker.lng)
+                ),
+                icon: (icon = customIcons[marker.type] || {}).icon,
                 shadow: icon.shadow
             });
             
@@ -77,18 +78,17 @@ App = (function () {
             
             mapMarker._data = marker;
             
-            google.maps.event.addListener(mapMarker, 'click', onMarkerClick);
+            GMAP_EVENT.addListener(mapMarker, 'click', onMarkerClick);
         }
     }
     
     function removeAllMarkers() {
-        var event = google.maps.event,
-            i = activeMarkers.length - 1,
+        var i = activeMarkers.length - 1,
             marker;
         
         while (i >= 0) {
             (marker = activeMarkers[i]).setMap(null);
-            event.clearInstanceListeners(marker);
+            GMAP_EVENT.clearInstanceListeners(marker);
             activeMarkers.splice(i, 1);
             i--;
         }
@@ -161,13 +161,13 @@ App = (function () {
     return {
         init: function () {
             
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: new google.maps.LatLng(45.486740, -75.633217),
+            map = new GMAP.Map(document.getElementById("map"), {
+                center: new GMAP_LAT_LNG(45.486740, -75.633217),
                 zoom: 11,
                 mapTypeId: 'roadmap'
             });
             
-            infoWindow = new google.maps.InfoWindow();
+            infoWindow = new GMAP.InfoWindow();
             
             search('');
             
