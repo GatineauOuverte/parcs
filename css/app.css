@@ -1,0 +1,92 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: white;
+    font-family: Tahoma;
+    font-size: small;
+    margin-top: 3px;
+}
+
+a img{
+border:0;
+}
+
+header {
+
+	width: 100%;
+	vertical-align: middle;
+	
+}
+
+table {
+	table-layout:fixed;
+}
+
+.table2 {
+	width: inherit;
+}
+
+
+td {
+	white-space: nowrap; 
+	font-family: Tahoma; 
+	font-size: small; 
+	width: 225px;
+}
+
+
+.td1 {
+	width: 325px;
+}
+
+.td2 {
+	width: 100px;
+}
+
+
+.td3 {
+	width: 115px;
+}
+
+.td4 {
+	width: 350px;
+}
+	
+	
+.td5 {
+	margin-right:auto;
+	width: inherit
+}	
+
+td.space-hog {
+	width: 100%;
+	height: 100%;
+}	
+	
+
+#map {
+    height: 62%;
+    width: 99%;
+}
+
+#installations {
+	height: 15%;
+  	width: 100%;
+  	margin-bottom: 2px;
+}
+
+#sectors {
+	margin-top: 8px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#footer {
+	margin-bottom: 2px;
+	margin-right: 5px;
+    width: 100%;
+    float:right;
+}
