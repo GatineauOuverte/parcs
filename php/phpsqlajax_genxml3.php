@@ -24,24 +24,23 @@ if ($get_query) {
   $query = 'SELECT sector, name, address, lat, lng, type, m.installation FROM markers m WHERE name LIKE  \'%'.$_GET['query'].'%\'';
 }else
 {  
-  $criterias ='INNER JOIN markers_installations mi ON m.id = mi.marker_id WHERE ';
+  $criterias ='WHERE 1=1 ';
   
   $sectors_criteria = '';
   
   $get_sectors = isset($_GET['sectors']);
   if ($get_sectors) {
     $sectors = explode(",", $_GET['sectors']);
+    $criterias = $criterias.'AND sector IN (';
     for ($i = 0; $i <= count($sectors)-1 ; $i++) {
-      if ($i == 0) {
-        $sectors_criteria = $sectors_criteria.'sector=\''.$sectors[$i].'\' ';
-      } else {
-        $sectors_criteria = $sectors_criteria.'OR sector=\''.$sectors[$i].'\' ';
-      }
+        if ($i == count($sectors)-1){
+          $criterias = $criterias.'\''.$sectors[$i].'\'';
+        } else{
+          $criterias = $criterias.'\''.$sectors[$i].'\''.',';
+        }
+      
     }
-    
-    $criterias = $criterias.'('.$sectors_criteria.')';
-  }else{
-    $criterias = 'INNER JOIN markers_installations mi ON m.id = mi.marker_id WHERE 1=1';
+    $criterias = $criterias.')';
   }
   
   $get_installation = isset($_GET['installations']);
@@ -51,7 +50,7 @@ if ($get_query) {
       if ($installations[$i] == 'Jeux d\'eau'){
         $criterias = $criterias.' AND m.installation LIKE \'%Jeux d\'\'eau%\' ';
       }else{
-        $criterias = $criterias.' AND m.installation LIKE \'%'.$installations[$i].'%\' ';
+        $criterias = $criterias.' AND m.installation LIKE \'%'.$installations[$i].'%\'';
       }
     }
   }
