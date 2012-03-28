@@ -7,13 +7,13 @@ App = (function () {
         GMAP_LAT_LNG = GMAP.LatLng,
         customIcons = {
             parc: {
-                icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',
-                shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+                icon: 'images/mm_20_green.png' ,
+                shadow: 'images/mm_20_shadow.png'
             },
           
             other: {
-                icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
-                shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+                icon: 'images/mm_20_green.png',
+                shadow: 'images/mm_20_shadow.png'
             }
         },
         activeMarkers = [],
@@ -42,7 +42,7 @@ App = (function () {
     function getMarkers(criterias, callback) {
         criterias = criterias || '';
         
-        ajax('phpsqlajax_genxml3.php?' + criterias, function (request, status) {  
+        ajax('php/phpsqlajax_genxml3.php?' + criterias, function (request, status) {  
             callback(JSON.parse(request.responseText), status);
         });
     }
