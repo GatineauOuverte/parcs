@@ -1,5 +1,11 @@
 App = (function () {
-    var customIcons = {
+    "use strict";
+    
+    var GMAP = google.maps,
+        GMAP_MARKER = GMAP.Marker,
+        GMAP_EVENT = GMAP.event,
+        GMAP_LAT_LNG = GMAP.LatLng,
+        customIcons = {
             parc: {
                 icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',
                 shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
@@ -11,6 +17,7 @@ App = (function () {
             }
         },
         activeMarkers = [],
+        searchInput,
         map, infoWindow;
         
     function ajax(url, callback) {
@@ -24,7 +31,12 @@ App = (function () {
             }
         };
         request.open('GET', url, true);
-        request.send('');
+        request.send();
+    }
+    
+    function on(el, eventName, handler) {
+        var hasAddEventListener = !!window.addEventListener;
+        el[hasAddEventListener? 'addEventListener' : 'attachEvent']((hasAddEventListener? '' : 'on') + eventName, handler);
     }
     
     function getMarkers(criterias, callback) {
@@ -34,49 +46,51 @@ App = (function () {
             callback(JSON.parse(request.responseText), status);
         });
     }
-
-    function bindInfoWindow(marker, html) {
-        google.maps.event.addListener(marker, 'click', function() {
-            infoWindow.setContent(html);
-            infoWindow.open(map, marker);
-        });
+    
+    function onMarkerClick() {
+        var data = this._data;
+        
+        infoWindow.setContent([
+            '<b>', data.name, '</b><br>',
+            data.address, '<br>',
+            data.installations
+        ].join(''));
+        
+        infoWindow.open(map, this);
     }
     
     function addMarkers(markers) {
-        var mapMarker, point, marker, icon;
+        var mapMarker, marker, icon;
          
         for (var i = 0, len = markers.length; i < len; i++) {
-            marker = markers[i];
             
-            point = new google.maps.LatLng(
-                parseFloat(marker.lat),
-                parseFloat(marker.lng)
-            );
-            
-            icon = customIcons[marker.type] || {};
-            
-            mapMarker = new google.maps.Marker({
+            mapMarker = new GMAP_MARKER({
                 map: map,
-                position: point,
-                icon: icon.icon,
+                position: new GMAP_LAT_LNG(
+                    parseFloat((marker = markers[i]).lat),
+                    parseFloat(marker.lng)
+                ),
+                icon: (icon = customIcons[marker.type] || {}).icon,
                 shadow: icon.shadow
             });
             
-            mapMarker.installations = marker.installations;
-            
             activeMarkers.push(mapMarker);
             
-            bindInfoWindow(mapMarker, [
-                '<b>', marker.name, '</b><br>',
-                marker.address, '<br>',
-                marker.installations
-            ].join(''));
+            mapMarker._data = marker;
+            
+            GMAP_EVENT.addListener(mapMarker, 'click', onMarkerClick);
         }
     }
     
     function removeAllMarkers() {
-        for (var i = 0, len = activeMarkers.length; i < len; i++) {
-            activeMarkers[i].setMap(null);
+        var i = activeMarkers.length - 1,
+            marker;
+        
+        while (i >= 0) {
+            (marker = activeMarkers[i]).setMap(null);
+            GMAP_EVENT.clearInstanceListeners(marker);
+            activeMarkers.splice(i, 1);
+            i--;
         }
     }
     
@@ -94,8 +108,9 @@ App = (function () {
         getMarkers(criterias, onMarkersLoad);
     }
     
-    function installHandlers() {
-        document.addEventListener('click', function (e) {
+    function installDOMListeners() {
+        
+        on(document, 'click', function (e) {
             var target = e.target;
             
             if (!target || target.type !== 'checkbox') {
@@ -104,6 +119,15 @@ App = (function () {
             
             search(buildCriterias());
         });
+        
+        //TODO: Free-text search function
+        /*
+        on(searchInput, 'keypress', function (e) {
+            if (e.keyCode && e.keyCode === 13) {
+                search(buildCriterias() + '&query=' + searchInput.value);
+            }
+        });
+        */
     }
     
     function buildCriterias() {
@@ -137,17 +161,19 @@ App = (function () {
     return {
         init: function () {
             
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: new google.maps.LatLng(45.486740, -75.633217),
+            map = new GMAP.Map(document.getElementById("map"), {
+                center: new GMAP_LAT_LNG(45.486740, -75.633217),
                 zoom: 11,
                 mapTypeId: 'roadmap'
             });
             
-            infoWindow = new google.maps.InfoWindow();
+            infoWindow = new GMAP.InfoWindow();
             
             search('');
             
-            installHandlers();
+            //searchInput = document.getElementById('search-input');
+            
+            installDOMListeners();
         }
     };
 })();
