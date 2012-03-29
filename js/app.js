@@ -1,3 +1,6 @@
+$(function(){
+  console.log('jQuery ready');
+})
 App = (function () {
     "use strict";
     
@@ -22,14 +25,66 @@ App = (function () {
             sectors: {},
             installations: {}
         },
+        cachedMarkers = null,
         searchInput, map, infoWindow, markerClusterer;
     
+    function clientFilter(markers,callback){
+      console.log('-----')
+      console.log('clientFilter activeFilters',JSON.stringify(activeFilters,null));
+      var filteredMarkers=[];
+      $.each(markers,function(i,marker){
+        // console.log('-----')
+        if (!marker.hasInstalltion){
+          // console.log('splitting installations');
+          marker.hasInstalltion={}
+          var installations = marker.installations.split(/\s*,\s*/);
+          $.each(installations,function(i,installation){
+            marker.hasInstalltion[installation]=true;
+          });
+        }
+        var iLkup = marker.installations.split(/\s*,\s*/);
+        // filter each marker against active Filters
+        var reject=false;
+        $.each(activeFilters.sectors,function(sector,_ignore){
+          console.log('testing sector',i,marker.sector,sector);
+          if (!marker.sector==sector){
+            // console.log('sector MISMATCH',sector);
+            reject=true;
+            return false;// break the foreach loop
+          }
+        });
+        $.each(activeFilters.installations,function(installation,_ignore){
+          // console.log('testing installation',i,installation);
+          if (!marker.hasInstalltion[installation]){
+            reject=true;
+            return false;// break the foreach loop
+          }
+        });
+        
+        // if (Math.random()>.5) filteredMarkers.push(marker);
+        if (!reject) filteredMarkers.push(marker);
+      });
+      console.log('filtered markers',filteredMarkers.length);
+      callback(filteredMarkers,200);
+    }
     function getMarkers(criterias, callback) {
         criterias = criterias || '';
         
+        /* previous server side - php criteria filtering 
         ajax('php/markers.php?' + criterias, function (request, status) {  
             callback(JSON.parse(request.responseText), status);
         });
+        */
+        if (cachedMarkers){
+          console.log('markers are cached');
+          clientFilter(cachedMarkers,callback);
+        } else {
+          
+          $.getJSON('data/markers.json',function(data){
+            cachedMarkers=data;
+            clientFilter(cachedMarkers,callback);
+          });
+        }
     }
     
     function onMarkerClick() {
