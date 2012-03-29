@@ -1,5 +1,5 @@
 $(function(){
-  console.log('jQuery ready');
+  // console.log('jQuery ready');
 })
 App = (function () {
     "use strict";
@@ -29,8 +29,8 @@ App = (function () {
         searchInput, map, infoWindow, markerClusterer;
     
     function clientFilter(markers,callback){
-      console.log('-----')
-      console.log('clientFilter activeFilters',JSON.stringify(activeFilters,null));
+      // console.log('-----')
+      // console.log('clientFilter activeFilters',JSON.stringify(activeFilters,null));
       var filteredMarkers=[];
       $.each(markers,function(i,marker){
         // console.log('-----')
@@ -46,7 +46,7 @@ App = (function () {
         // filter each marker against active Filters
         var reject=false;
         $.each(activeFilters.sectors,function(sector,_ignore){
-          console.log('testing sector',i,marker.sector,sector);
+          // console.log('testing sector',i,marker.sector,sector);
           if (!marker.sector==sector){
             // console.log('sector MISMATCH',sector);
             reject=true;
@@ -64,7 +64,7 @@ App = (function () {
         // if (Math.random()>.5) filteredMarkers.push(marker);
         if (!reject) filteredMarkers.push(marker);
       });
-      console.log('filtered markers',filteredMarkers.length);
+      // console.log('filtered markers',filteredMarkers.length);
       callback(filteredMarkers,200);
     }
     function getMarkers(criterias, callback) {
@@ -76,7 +76,7 @@ App = (function () {
         });
         */
         if (cachedMarkers){
-          console.log('markers are cached');
+          // console.log('markers are cached');
           clientFilter(cachedMarkers,callback);
         } else {
           
