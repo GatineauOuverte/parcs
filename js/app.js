@@ -1,5 +1,6 @@
 $(function(){
   // console.log('jQuery ready');
+  App.init();
 })
 App = (function () {
     "use strict";
@@ -33,15 +34,6 @@ App = (function () {
       // console.log('clientFilter activeFilters',JSON.stringify(activeFilters,null));
       var filteredMarkers=[];
       $.each(markers,function(i,marker){
-        // console.log('-----')
-        if (!marker.hasInstalltion){
-          // console.log('splitting installations');
-          marker.hasInstalltion={}
-          var installations = marker.installations.split(/\s*,\s*/);
-          $.each(installations,function(i,installation){
-            marker.hasInstalltion[installation]=true;
-          });
-        }
         // filter each marker against active Filters
         var reject=false;
         $.each(activeFilters.sectors,function(sector,_ignore){
@@ -66,6 +58,51 @@ App = (function () {
       // console.log('filtered markers',filteredMarkers.length);
       callback(filteredMarkers,200);
     }
+    function sortHashKeys(hash){
+      var sorted=[]
+      $.each(hash,function(key){
+        sorted.push(key);
+      });
+      sorted.sort();
+      return sorted;
+    }
+    function firstInit(markers){
+      var allSectors={};
+      var allInstallations={};
+      $.each(markers,function(i,marker){
+        allSectors[marker.sector]=true;
+        // tokenize installations
+        if (!marker.hasInstalltion){
+          marker.hasInstalltion={}
+          var installations = marker.installations.split(/\s*,\s*/);
+          $.each(installations,function(i,installation){
+            allInstallations[installation]=true;
+            marker.hasInstalltion[installation]=true;
+          });
+        }        
+      });
+      
+      // sort and insert sector checkboxes
+      var sortedSectors=sortHashKeys(allSectors);
+      var $sector=$('#sectors');
+      $.each(sortedSectors,function(i,sector){
+        console.log('sector',i,sector);
+        $sector.append($('<input type="checkbox" name="sector" value="'+sector+'"/> <span>'+sector+'</span>'))
+      });
+
+      // sort and insert installation checkboxes
+      var sortedInstallations=sortHashKeys(allInstallations);
+      var $trows=$();
+      var $tr=null;
+      $.each(sortedInstallations,function(i,installation){
+        if ((i%6)==0) { $tr = $('<tr />'); $trows = $trows.add($tr); }
+        console.log('installation',i,installation);
+        // <td><input type="checkbox" name="installation" value="Aréna"/> Aréna</td>
+        $tr.append($('<td><input type="checkbox" name="installation" value="'+installation+'"/> '+installation+'</td>'))
+      });
+      var $installationsTbl=$('#installations table');
+      $installationsTbl.append($trows);
+    }
     function getMarkers(criterias, callback) {
         criterias = criterias || '';
         
@@ -81,6 +118,7 @@ App = (function () {
           
           $.getJSON('data/markers.json',function(data){
             cachedMarkers=data;
+            firstInit(cachedMarkers);
             clientFilter(cachedMarkers,callback);
           });
         }

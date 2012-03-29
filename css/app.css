@@ -83,7 +83,9 @@ td.space-hog {
     margin-bottom: 15px;
     width: 100%;
 }
-
+#sectors input {
+  margin-left:10px;
+}
 #footer {
 	margin-bottom: 2px;
 	margin-right: 5px;
