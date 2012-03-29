@@ -22,7 +22,7 @@ App = (function () {
             sectors: {},
             installations: {}
         },
-        searchInput, map, infoWindow;
+        searchInput, map, infoWindow, markerClusterer;
     
     function getMarkers(criterias, callback) {
         criterias = criterias || '';
@@ -60,7 +60,6 @@ App = (function () {
         for (var i = 0, len = markers.length; i < len; i++) {
             
             mapMarker = new GMarker({
-                map: map,
                 position: new GLatLng(
                     parseFloat((marker = markers[i]).lat),
                     parseFloat(marker.lng)
@@ -75,15 +74,19 @@ App = (function () {
             
             GEvent.addListener(mapMarker, 'click', onMarkerClick);
         }
+        
+        markerClusterer.addMarkers(activeMarkers);
     }
     
     function removeAllMarkers() {
         var i = activeMarkers.length - 1,
             marker;
         
+        markerClusterer.clearMarkers();
+        
         while (i >= 0) {
-            (marker = activeMarkers[i]).setMap(null);
-            GEvent.clearInstanceListeners(marker);
+            marker = activeMarkers[i];
+            GEvent.clearInstanceListeners(marker); //TODO: Is this needed since we used clearMarkers?
             activeMarkers.splice(i, 1);
             i--;
         }
@@ -166,6 +169,10 @@ App = (function () {
                 center: new GLatLng(45.486740, -75.633217),
                 zoom: 11,
                 mapTypeId: 'roadmap'
+            });
+            
+            markerClusterer = new MarkerClusterer(map, [], {
+                minimumClusterSize: 10
             });
             
             infoWindow = new GMap.InfoWindow();
