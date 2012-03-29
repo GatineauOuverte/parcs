@@ -1,10 +1,10 @@
 App = (function () {
     "use strict";
     
-    var GMAP = google.maps,
-        GMAP_MARKER = GMAP.Marker,
-        GMAP_EVENT = GMAP.event,
-        GMAP_LAT_LNG = GMAP.LatLng,
+    var GMap = google.maps,
+        GMarker = GMap.Marker,
+        GEvent = GMap.event,
+        GLatLng = GMap.LatLng,
         customIcons = {
             parc: {
                 icon: 'images/mm_20_green.png' ,
@@ -17,8 +17,11 @@ App = (function () {
             }
         },
         activeMarkers = [],
-        searchInput,
-        map, infoWindow;
+        activeFilters = {
+            sectors: {},
+            installations: {}
+        },
+        searchInput, map, infoWindow;
         
     function ajax(url, callback) {
         var request = window.XMLHttpRequest?
@@ -31,7 +34,7 @@ App = (function () {
             }
         };
         request.open('GET', url, true);
-        request.send();
+        request.send(null);
     }
     
     function on(el, eventName, handler) {
@@ -64,9 +67,9 @@ App = (function () {
          
         for (var i = 0, len = markers.length; i < len; i++) {
             
-            mapMarker = new GMAP_MARKER({
+            mapMarker = new GMarker({
                 map: map,
-                position: new GMAP_LAT_LNG(
+                position: new GLatLng(
                     parseFloat((marker = markers[i]).lat),
                     parseFloat(marker.lng)
                 ),
@@ -78,7 +81,7 @@ App = (function () {
             
             mapMarker._data = marker;
             
-            GMAP_EVENT.addListener(mapMarker, 'click', onMarkerClick);
+            GEvent.addListener(mapMarker, 'click', onMarkerClick);
         }
     }
     
@@ -88,7 +91,7 @@ App = (function () {
         
         while (i >= 0) {
             (marker = activeMarkers[i]).setMap(null);
-            GMAP_EVENT.clearInstanceListeners(marker);
+            GEvent.clearInstanceListeners(marker);
             activeMarkers.splice(i, 1);
             i--;
         }
@@ -103,9 +106,19 @@ App = (function () {
         addMarkers(markers);
     }
     
-    function search(criterias) {
+    function filterMarkers(criterias) {
         removeAllMarkers();
         getMarkers(criterias, onMarkersLoad);
+    }
+    
+    function updateFilter(type, id, clear) {
+        type = type + 's';
+        
+        if (clear) {
+            delete activeFilters[type][id];
+        } else {
+            activeFilters[type][id] = true;
+        }
     }
     
     function installDOMListeners() {
@@ -117,61 +130,57 @@ App = (function () {
                 return;
             }
             
-            search(buildCriterias());
+            updateFilter(target.name, target.value, !target.checked);
+            
+            filterMarkers(buildCriterias());
         });
         
-        //TODO: Free-text search function
+        //TODO: Free-text filterMarkers function
         /*
         on(searchInput, 'keypress', function (e) {
             if (e.keyCode && e.keyCode === 13) {
-                search(buildCriterias() + '&query=' + searchInput.value);
+                filterMarkers(buildCriterias() + '&query=' + searchInput.value);
             }
         });
         */
     }
     
     function buildCriterias() {
-        var checks = document.querySelectorAll('[type="checkbox"]'),
-            i = 0,
-            len = checks.length,
-            lastIndex = len - 1,
-            sectors = '',
-            installations = '',
-            input;
+        
+        var sectors = activeFilters.sectors,
+            installations = activeFilters.installations,
+            installationsParams = '',
+            sectorsParams = '',
+            key;
             
-        for (; i < len; i++) {
-            input = checks[i];
-            
-            switch (input.checked && input.name) {
-                case 'installation':
-                    installations += input.value + ',';
-                    break;
-                case 'sector':
-                    sectors += input.value + ',';
-                    break;
-            }
+        for (key in sectors) {
+            sectorsParams += key + ',';
+        }
+        
+        for (key in installations) {
+            installationsParams += key + ',';
         }
         
         return encodeURI(
-            (installations === ''? '' : 'installations=' + installations.slice(0, -1))
-            + (sectors === ''? '' : (installations? '&' : '') + 'sectors=' + sectors.slice(0, -1))
+            (installationsParams === ''? '' : 'installations=' + installationsParams.slice(0, -1))
+            + (sectorsParams === ''? '' : (installationsParams? '&' : '') + 'sectors=' + sectorsParams.slice(0, -1))
         );
     }
     
     return {
         init: function () {
             
-            map = new GMAP.Map(document.getElementById("map"), {
-                center: new GMAP_LAT_LNG(45.486740, -75.633217),
+            map = new GMap.Map(document.getElementById("map"), {
+                center: new GLatLng(45.486740, -75.633217),
                 zoom: 11,
                 mapTypeId: 'roadmap'
             });
             
-            infoWindow = new GMAP.InfoWindow();
+            infoWindow = new GMap.InfoWindow();
             
-            search('');
+            filterMarkers('');
             
-            //searchInput = document.getElementById('search-input');
+            //searchInput = document.getElementById('filterMarkers-input');
             
             installDOMListeners();
         }
