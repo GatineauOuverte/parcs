@@ -1,82 +1,72 @@
 <?php
+
+function clean($s) {
+    return ("'" . mysql_escape_string( $s) . "'" );
+};
   
 require("dbinfo.php"); 
 
-// Start XML file, create parent node
-$dom = new DOMDocument("1.0");
-$dom->preserveWhiteSpace = false;
-$dom->formatOutput = true;
-$node = $dom->createElement("markers");
-$parnode = $dom->appendChild($node); 
-
 // Opens a connection to a MySQL server
-$connection=mysql_connect ('localhost', $username, $password);
-if (!$connection) {  die('Not connected : ' . mysql_error());} 
+$connection = mysql_connect('localhost', $username, $password)
+    or die('Not connected : ' . mysql_error());
 
 // Set the active MySQL database
-$db_selected = mysql_select_db($database, $connection);
-if (!$db_selected) {
-  die ('Can\'t use db : ' . mysql_error());
-}
+$db_selected = mysql_select_db($database, $connection)
+    or die('Can\'t use db : ' . mysql_error());
 
-$get_query = isset($_GET['query']);
-if ($get_query) {
-  $query = 'SELECT sector, name, address, lat, lng, type, m.installation FROM markers m WHERE name LIKE  \'%'.$_GET['query'].'%\'';
-}else
-{  
-  $criterias ='WHERE 1=1 ';
-  
-  $sectors_criteria = '';
-  
-  $get_sectors = isset($_GET['sectors']);
-  if ($get_sectors) {
-    $sectors = explode(",", $_GET['sectors']);
-    $criterias = $criterias.'AND sector IN (';
-    for ($i = 0; $i <= count($sectors)-1 ; $i++) {
-        if ($i == count($sectors)-1){
-          $criterias = $criterias.'\''.$sectors[$i].'\'';
-        } else{
-          $criterias = $criterias.'\''.$sectors[$i].'\''.',';
+$query = '
+    SELECT
+        sector,
+        name,
+        address,
+        lat,
+        lng,
+        type,
+        installation
+    FROM markers
+    WHERE 1 = 1
+';
+
+if (array_key_exists('query', $_GET) and strlen($_GET['query'])) {
+    $query = sprintf(
+        "%s AND name LIKE '%%%s%%'",
+        $query,
+        mysql_real_escape_string($_GET['query'])
+    );               
+} else {
+    
+    if (array_key_exists('sectors', $_GET) and strlen($_GET['sectors'])) {
+        $query = sprintf(
+            "%s AND sector IN (%s)",
+            $query,
+            implode( ', ', array_map( "clean", explode(',', $_GET['sectors'])))
+        );  
+    }
+    
+    if (array_key_exists('installations', $_GET) and strlen($_GET['installations'])) {
+        $installations = explode(',', $_GET['installations']);
+        
+        for ($i = 0; $i < count($installations); $i++) {
+            $query = sprintf(
+                "%s AND CONCAT(installation, ',') LIKE '%%%s,%%'",
+                $query,
+                mysql_real_escape_string($installations[$i])
+            );
         }
-      
     }
-    $criterias = $criterias.')';
-  }
-  
-  $get_installation = isset($_GET['installations']);
-  if ($get_installation){
-    $installations = explode(",", $_GET['installations']);
-    for ($i = 0; $i <= count($installations)-1 ; $i++){   
-      if ($installations[$i] == 'Jeux d\'eau'){
-        $criterias = $criterias.' AND m.installation LIKE \'%Jeux d\'\'eau%\' ';
-      }else{
-        $criterias = $criterias.' AND m.installation LIKE \'%'.$installations[$i].'%\'';
-      }
-    }
-  }
-  
-  // Select all the rows in the markers table
-  $query = 'SELECT sector, name, address, lat, lng, type, m.installation FROM markers m ';
-  
-  if ($get_installation || $get_sectors) {
-    $query = $query.$criterias;
-  }
-
 }
-//echo $query;
+
 mysql_query("SET NAMES utf8");
 
-$result = mysql_query($query);
-if (!$result) {  
-  die('Invalid query: ' . mysql_error());
-} 
-
+$query = mysql_query($query)
+    or die('Invalid query: ' . mysql_error());
 
 header("Content-Type: application/json; charset=utf-8");
 
-$arr = array();
-while ($row = @mysql_fetch_assoc($result)){
-    $arr[]=array(
+$result = array();
+
+while ($row = @mysql_fetch_assoc($query)) {
+    $result[] = array(
       'sector'=>$row['sector'],
       'name'=>$row['name'],
       'address'=>$row['address'],
@@ -87,7 +77,7 @@ while ($row = @mysql_fetch_assoc($result)){
     );
 }
 
-echo json_encode($arr);
+echo json_encode($result);
 
 mysql_close($connection);
 
