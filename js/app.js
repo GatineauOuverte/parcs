@@ -46,7 +46,7 @@ App = (function () {
         var reject=false;
         $.each(activeFilters.sectors,function(sector,_ignore){
           // console.log('testing sector',i,marker.sector,sector);
-          if (!marker.sector==sector){
+          if (!(marker.sector==sector)){
             // console.log('sector MISMATCH',sector);
             reject=true;
             return false;// break the foreach loop
