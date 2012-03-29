@@ -16,6 +16,7 @@ App = (function () {
                 shadow: 'images/mm_20_shadow.png'
             }
         },
+        focusedMarker = null,
         activeMarkers = [],
         activeFilters = {
             sectors: {},
@@ -53,6 +54,12 @@ App = (function () {
     function onMarkerClick() {
         var data = this._data;
         
+        if (focusedMarker) {
+            focusedMarker.setAnimation(null);
+        }
+        
+        focusedMarker = this;
+        
         infoWindow.setContent([
             '<b>', data.name, '</b><br>',
             data.address, '<br>',
@@ -60,6 +67,10 @@ App = (function () {
         ].join(''));
         
         infoWindow.open(map, this);
+        
+        setTimeout(function () {
+            focusedMarker.setAnimation(GMap.Animation.BOUNCE);
+        }, 0);
     }
     
     function addMarkers(markers) {
@@ -177,6 +188,11 @@ App = (function () {
             });
             
             infoWindow = new GMap.InfoWindow();
+            
+            GEvent.addListener(infoWindow, 'closeclick', function () {
+                focusedMarker.setAnimation(null);
+                focusedMarker = null;
+            });
             
             filterMarkers('');
             
