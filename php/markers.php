@@ -1,6 +1,6 @@
 <?php
   
-require("phpsqlajax_dbinfo.php"); 
+require("dbinfo.php"); 
 
 // Start XML file, create parent node
 $dom = new DOMDocument("1.0");

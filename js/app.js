@@ -46,7 +46,7 @@ App = (function () {
     function getMarkers(criterias, callback) {
         criterias = criterias || '';
         
-        ajax('php/phpsqlajax_genxml3.php?' + criterias, function (request, status) {  
+        ajax('php/markers.php?' + criterias, function (request, status) {  
             callback(JSON.parse(request.responseText), status);
         });
     }
