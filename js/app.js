@@ -1,5 +1,11 @@
 App = (function () {
-    var customIcons = {
+    "use strict";
+    
+    var GMap = google.maps,
+        GMarker = GMap.Marker,
+        GEvent = GMap.event,
+        GLatLng = GMap.LatLng,
+        customIcons = {
             parc: {
                 icon: 'images/mm_20_green.png' ,
                 shadow: 'images/mm_20_shadow.png'
@@ -10,39 +16,30 @@ App = (function () {
                 shadow: 'images/mm_20_shadow.png'
             }
         },
+        focusedMarker = null,
         activeMarkers = [],
-        searchInput,
-        map, infoWindow;
-        
-    function ajax(url, callback) {
-        var request = window.XMLHttpRequest?
-            new XMLHttpRequest() :
-            new ActiveXObject('Microsoft.XMLHTTP');
-    
-        request.onreadystatechange = function() {
-            if (request.readyState == 4) {
-                callback(request, request.status);
-            }
-        };
-        request.open('GET', url, true);
-        request.send('');
-    }
-    
-    function on(el, eventName, handler) {
-        var hasAddEventListener = !!window.addEventListener;
-        el[hasAddEventListener? 'addEventListener' : 'attachEvent']((hasAddEventListener? '' : 'on') + eventName, handler);
-    }
+        activeFilters = {
+            sectors: {},
+            installations: {}
+        },
+        searchInput, map, infoWindow, markerClusterer;
     
     function getMarkers(criterias, callback) {
         criterias = criterias || '';
         
-        ajax('php/phpsqlajax_genxml3.php?' + criterias, function (request, status) {  
+        ajax('php/markers.php?' + criterias, function (request, status) {  
             callback(JSON.parse(request.responseText), status);
         });
     }
     
     function onMarkerClick() {
         var data = this._data;
+        
+        if (focusedMarker) {
+            focusedMarker.setAnimation(null);
+        }
+        
+        focusedMarker = this;
         
         infoWindow.setContent([
             '<b>', data.name, '</b><br>',
@@ -51,25 +48,23 @@ App = (function () {
         ].join(''));
         
         infoWindow.open(map, this);
+        
+        setTimeout(function () {
+            focusedMarker.setAnimation(GMap.Animation.BOUNCE);
+        }, 0);
     }
     
     function addMarkers(markers) {
-        var mapMarker, point, marker, icon;
+        var mapMarker, marker, icon;
          
         for (var i = 0, len = markers.length; i < len; i++) {
-            marker = markers[i];
             
-            point = new google.maps.LatLng(
-                parseFloat(marker.lat),
-                parseFloat(marker.lng)
-            );
-            
-            icon = customIcons[marker.type] || {};
-            
-            mapMarker = new google.maps.Marker({
-                map: map,
-                position: point,
-                icon: icon.icon,
+            mapMarker = new GMarker({
+                position: new GLatLng(
+                    parseFloat((marker = markers[i]).lat),
+                    parseFloat(marker.lng)
+                ),
+                icon: (icon = customIcons[marker.type] || {}).icon,
                 shadow: icon.shadow
             });
             
@@ -77,18 +72,21 @@ App = (function () {
             
             mapMarker._data = marker;
             
-            google.maps.event.addListener(mapMarker, 'click', onMarkerClick);
+            GEvent.addListener(mapMarker, 'click', onMarkerClick);
         }
+        
+        markerClusterer.addMarkers(activeMarkers);
     }
     
     function removeAllMarkers() {
-        var event = google.maps.event,
-            i = activeMarkers.length - 1,
+        var i = activeMarkers.length - 1,
             marker;
         
+        markerClusterer.clearMarkers();
+        
         while (i >= 0) {
-            (marker = activeMarkers[i]).setMap(null);
-            event.clearInstanceListeners(marker);
+            marker = activeMarkers[i];
+            GEvent.clearInstanceListeners(marker); //TODO: Is this needed since we used clearMarkers?
             activeMarkers.splice(i, 1);
             i--;
         }
@@ -103,9 +101,19 @@ App = (function () {
         addMarkers(markers);
     }
     
-    function search(criterias) {
+    function filterMarkers(criterias) {
         removeAllMarkers();
         getMarkers(criterias, onMarkersLoad);
+    }
+    
+    function updateFilter(type, id, clear) {
+        type = type + 's';
+        
+        if (clear) {
+            delete activeFilters[type][id];
+        } else {
+            activeFilters[type][id] = true;
+        }
     }
     
     function installDOMListeners() {
@@ -117,61 +125,66 @@ App = (function () {
                 return;
             }
             
-            search(buildCriterias());
+            updateFilter(target.name, target.value, !target.checked);
+            
+            filterMarkers(buildCriterias());
         });
         
-        //TODO: Free-text search function
+        //TODO: Free-text filterMarkers function
         /*
         on(searchInput, 'keypress', function (e) {
             if (e.keyCode && e.keyCode === 13) {
-                search(buildCriterias() + '&query=' + searchInput.value);
+                filterMarkers(buildCriterias() + '&query=' + searchInput.value);
             }
         });
         */
     }
     
     function buildCriterias() {
-        var checks = document.querySelectorAll('[type="checkbox"]'),
-            i = 0,
-            len = checks.length,
-            lastIndex = len - 1,
-            sectors = '',
-            installations = '',
-            input;
+        
+        var sectors = activeFilters.sectors,
+            installations = activeFilters.installations,
+            installationsParams = '',
+            sectorsParams = '',
+            key;
             
-        for (; i < len; i++) {
-            input = checks[i];
-            
-            switch (input.checked && input.name) {
-                case 'installation':
-                    installations += input.value + ',';
-                    break;
-                case 'sector':
-                    sectors += input.value + ',';
-                    break;
-            }
+        for (key in sectors) {
+            sectorsParams += key + ',';
+        }
+        
+        for (key in installations) {
+            installationsParams += key + ',';
         }
         
         return encodeURI(
-            (installations === ''? '' : 'installations=' + installations.slice(0, -1))
-            + (sectors === ''? '' : (installations? '&' : '') + 'sectors=' + sectors.slice(0, -1))
+            (installationsParams === ''? '' : 'installations=' + installationsParams.slice(0, -1))
+            + (sectorsParams === ''? '' : (installationsParams? '&' : '') + 'sectors=' + sectorsParams.slice(0, -1))
         );
     }
     
     return {
         init: function () {
             
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: new google.maps.LatLng(45.486740, -75.633217),
+            map = new GMap.Map(document.getElementById("map"), {
+                center: new GLatLng(45.486740, -75.633217),
                 zoom: 11,
                 mapTypeId: 'roadmap'
             });
             
-            infoWindow = new google.maps.InfoWindow();
+            markerClusterer = new MarkerClusterer(map, [], {
+                minimumClusterSize: 10
+            });
             
-            search('');
+            infoWindow = new GMap.InfoWindow();
             
-            //searchInput = document.getElementById('search-input');
+            GEvent.addListener(infoWindow, 'closeclick', function () {
+                focusedMarker.setAnimation(null);
+                focusedMarker = null;
+            });
+            
+            filterMarkers('');
+            
+            //searchInput = document.getElementById('filterMarkers-input');
             
             installDOMListeners();
         }
