@@ -42,7 +42,6 @@ App = (function () {
             marker.hasInstalltion[installation]=true;
           });
         }
-        var iLkup = marker.installations.split(/\s*,\s*/);
         // filter each marker against active Filters
         var reject=false;
         $.each(activeFilters.sectors,function(sector,_ignore){
