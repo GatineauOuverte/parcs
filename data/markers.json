@@ -6,7 +6,7 @@
         "lat": 45.411827,
         "lng": -75.784081,
         "type": "parc",
-        "installations": ["Ballon-panier", "Chalet utilitaire", "Courts de tennis", "Gradin", "Patinoire extérieure", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Ballon-panier", "Chalet utilitaire", "Courts de tennis", "Gradins", "Patinoire extérieure", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Aylmer",
@@ -42,7 +42,7 @@
         "lat": 45.392834,
         "lng": -75.830498,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradin", "Patinoire extérieure", "Pétanque", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradins", "Patinoire extérieure", "Pétanque", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Aylmer",
@@ -69,7 +69,7 @@
         "lat": 45.398369,
         "lng": -75.859177,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet de service", "Chalet utilitaire", "Gradin", "Plage", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de volleyball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet de service", "Chalet utilitaire", "Gradins", "Plage", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de volleyball"]
     },
     {
         "sector": "Aylmer",
@@ -87,7 +87,7 @@
         "lat": 45.392941,
         "lng": -75.838440,
         "type": "parc",
-        "installations": ["Balançoires pour enfants", "Bancs publics", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour enfants", "Bancs publics", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Aylmer",
@@ -132,7 +132,7 @@
         "lat": 45.394127,
         "lng": -75.843613,
         "type": "parc",
-        "installations": ["Aréna", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet de service", "Gradin", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Aréna", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet de service", "Gradins", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Aylmer",
@@ -204,7 +204,7 @@
         "lat": 45.405132,
         "lng": -75.855766,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradin", "Pataugeoire extérieure", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradins", "Pataugeoire extérieure", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Aylmer",
@@ -240,7 +240,7 @@
         "lat": 45.417622,
         "lng": -75.839790,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradin", "Pataugeoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradins", "Pataugeoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de soccer"]
     },
     {
         "sector": "Aylmer",
@@ -267,7 +267,7 @@
         "lat": 45.383041,
         "lng": -75.807808,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Gradin", "Jeux d'eau", "Pataugeoire extérieure", "Structure de jeu pour les 2-5 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Gradins", "Jeux d'eau", "Pataugeoire extérieure", "Structure de jeu pour les 2-5 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette"]
     },
     {
         "sector": "Aylmer",
@@ -285,7 +285,7 @@
         "lat": 45.391872,
         "lng": -75.800285,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Aylmer",
@@ -312,7 +312,7 @@
         "lat": 45.458759,
         "lng": -75.878792,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet utilitaire", "Courts de tennis", "Fer à cheval", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet utilitaire", "Courts de tennis", "Fer à cheval", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Aylmer",
@@ -357,7 +357,7 @@
         "lat": 45.408981,
         "lng": -75.832260,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de soccer"]
     },
     {
         "sector": "Aylmer",
@@ -420,7 +420,7 @@
         "lat": 45.386677,
         "lng": -75.841888,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet de service", "Courts de tennis", "Gradin", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet de service", "Courts de tennis", "Gradins", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique"]
     },
     {
         "sector": "Aylmer",
@@ -429,7 +429,7 @@
         "lat": 45.407509,
         "lng": -75.846329,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Gradin", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Gradins", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de soccer"]
     },
     {
         "sector": "Aylmer",
@@ -438,7 +438,7 @@
         "lat": 45.405342,
         "lng": -75.834953,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Aylmer",
@@ -474,7 +474,7 @@
         "lat": 45.568447,
         "lng": -75.424561,
         "type": "parc",
-        "installations": ["Centre communautaire", "Chalet de service", "Gradin", "Patinoire extérieure", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette"]
+        "installations": ["Centre communautaire", "Chalet de service", "Gradins", "Patinoire extérieure", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette"]
     },
     {
         "sector": "Buckingham",
@@ -627,7 +627,7 @@
         "lat": 45.583008,
         "lng": -75.409676,
         "type": "parc",
-        "installations": ["Bancs publics", "Chalet de service", "Fer à cheval", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Bancs publics", "Chalet de service", "Fer à cheval", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Buckingham",
@@ -672,7 +672,7 @@
         "lat": 45.486740,
         "lng": -75.633217,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Gradin", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Gradins", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Terrain de soccer"]
     },
     {
         "sector": "Gatineau",
@@ -708,7 +708,7 @@
         "lat": 45.485798,
         "lng": -75.656509,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet utilitaire", "Gradin", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet utilitaire", "Gradins", "Terrain de baseball"]
     },
     {
         "sector": "Gatineau",
@@ -879,7 +879,7 @@
         "lat": 45.485794,
         "lng": -75.650795,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de soccer"]
     },
     {
         "sector": "Gatineau",
@@ -915,7 +915,7 @@
         "lat": 45.476624,
         "lng": -75.717430,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet utilitaire", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 5-12 ans", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet utilitaire", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 5-12 ans", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Gatineau",
@@ -924,7 +924,7 @@
         "lat": 45.465549,
         "lng": -75.707268,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet de service", "Chalet utilitaire", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Terrain de baseball", "Terrain de planches à roulette", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet de service", "Chalet utilitaire", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Terrain de baseball", "Terrain de planches à roulette", "Terrain de soccer"]
     },
     {
         "sector": "Gatineau",
@@ -951,7 +951,7 @@
         "lat": 45.497826,
         "lng": -75.695129,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet utilitaire", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet utilitaire", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans"]
     },
     {
         "sector": "Gatineau",
@@ -978,7 +978,7 @@
         "lat": 45.527683,
         "lng": -75.640320,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Chalet utilitaire", "Gradin", "Structure de jeu pour les 2-5 ans", "Tables de pique-nique"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Chalet utilitaire", "Gradins", "Structure de jeu pour les 2-5 ans", "Tables de pique-nique"]
     },
     {
         "sector": "Gatineau",
@@ -1086,7 +1086,7 @@
         "lat": 45.494171,
         "lng": -75.755928,
         "type": "parc",
-        "installations": ["Aréna", "Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Chalet utilitaire", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Aréna", "Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Chalet utilitaire", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Gatineau",
@@ -1122,7 +1122,7 @@
         "lat": 45.493031,
         "lng": -75.604973,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Chalet de service", "Courts de tennis", "Fer à cheval", "Galet", "Gradin", "Pétanque", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Chalet de service", "Courts de tennis", "Fer à cheval", "Galet", "Gradins", "Pétanque", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Gatineau",
@@ -1158,7 +1158,7 @@
         "lat": 45.483620,
         "lng": -75.710175,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet de service", "Chalet utilitaire", "Gradin", "Jeux d'eau", "Patinoire extérieure", "Préau", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de hockey-ball", "Terrain de volleyball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet de service", "Chalet utilitaire", "Gradins", "Jeux d'eau", "Patinoire extérieure", "Préau", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de hockey-ball", "Terrain de volleyball"]
     },
     {
         "sector": "Gatineau",
@@ -1221,7 +1221,7 @@
         "lat": 45.485386,
         "lng": -75.691917,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet de service", "Courts de tennis", "Gradin", "Patinoire extérieure", "Préau", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet de service", "Courts de tennis", "Gradins", "Patinoire extérieure", "Préau", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Gatineau",
@@ -1248,7 +1248,7 @@
         "lat": 45.470757,
         "lng": -75.697624,
         "type": "parc",
-        "installations": ["Aréna", "Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet de service", "Courts de tennis", "Gradin", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Aréna", "Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet de service", "Courts de tennis", "Gradins", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Gatineau",
@@ -1266,7 +1266,7 @@
         "lat": 45.479614,
         "lng": -75.632507,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet utilitaire", "Courts de tennis", "Croquet", "Gradin", "Jeux d'eau", "Préau", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet utilitaire", "Courts de tennis", "Croquet", "Gradins", "Jeux d'eau", "Préau", "Structure de jeu pour les 5-12 ans", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Gatineau",
@@ -1293,7 +1293,7 @@
         "lat": 45.488541,
         "lng": -75.670822,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Gradin", "Patinoire extérieure", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Gradins", "Patinoire extérieure", "Terrain de soccer"]
     },
     {
         "sector": "Gatineau",
@@ -1311,7 +1311,7 @@
         "lat": 45.473618,
         "lng": -75.724266,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Chalet de service", "Chalet utilitaire", "Courts de tennis", "Gradin", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette", "Terrain de volleyball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Chalet de service", "Chalet utilitaire", "Courts de tennis", "Gradins", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette", "Terrain de volleyball"]
     },
     {
         "sector": "Gatineau",
@@ -1338,7 +1338,7 @@
         "lat": 45.479664,
         "lng": -75.723694,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet de service", "Gradin", "Structure de jeu pour les 2-5 ans", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet de service", "Gradins", "Structure de jeu pour les 2-5 ans", "Terrain de baseball"]
     },
     {
         "sector": "Gatineau",
@@ -1374,7 +1374,7 @@
         "lat": 45.491608,
         "lng": -75.646683,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet de service", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Tables de pique-nique", "Terrain de baseball", "Terrain de volleyball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet de service", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Tables de pique-nique", "Terrain de baseball", "Terrain de volleyball"]
     },
     {
         "sector": "Gatineau",
@@ -1383,7 +1383,7 @@
         "lat": 45.469505,
         "lng": -75.688873,
         "type": "parc",
-        "installations": ["Bancs publics", "Centre communautaire", "Fer à cheval", "Gradin", "Pataugeoire extérieure", "Structure de jeu pour les 2-5 ans", "Support à vélo"]
+        "installations": ["Bancs publics", "Centre communautaire", "Fer à cheval", "Gradins", "Pataugeoire extérieure", "Structure de jeu pour les 2-5 ans", "Support à vélo"]
     },
     {
         "sector": "Gatineau",
@@ -1392,7 +1392,7 @@
         "lat": 45.478489,
         "lng": -75.640633,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Chalet de service", "Chalet utilitaire", "Gradin", "Marina", "Patinoire extérieure", "Préau", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Centre communautaire", "Chalet de service", "Chalet utilitaire", "Gradins", "Marina", "Patinoire extérieure", "Préau", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Gatineau",
@@ -1410,7 +1410,7 @@
         "lat": 45.475056,
         "lng": -75.678886,
         "type": "parc",
-        "installations": ["Chalet de service", "Gradin", "Terrain de soccer"]
+        "installations": ["Chalet de service", "Gradins", "Terrain de soccer"]
     },
     {
         "sector": "Gatineau",
@@ -1581,7 +1581,7 @@
         "lat": 45.427914,
         "lng": -75.732315,
         "type": "parc",
-        "installations": ["Bancs publics", "Gradin", "Terrain de soccer"]
+        "installations": ["Bancs publics", "Gradins", "Terrain de soccer"]
     },
     {
         "sector": "Hull",
@@ -1635,7 +1635,7 @@
         "lat": 45.443188,
         "lng": -75.713654,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Gradin", "Jeux d'eau", "Patinoire extérieure", "Piscine extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette", "Terrain de volleyball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Gradins", "Jeux d'eau", "Patinoire extérieure", "Piscine extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette", "Terrain de volleyball"]
     },
     {
         "sector": "Hull",
@@ -1698,7 +1698,7 @@
         "lat": 45.432056,
         "lng": -75.715431,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradin", "Pataugeoire extérieure", "Patinoire extérieure", "Pétanque", "Piscine extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de hockey-ball", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Courts de tennis", "Gradins", "Pataugeoire extérieure", "Patinoire extérieure", "Pétanque", "Piscine extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de hockey-ball", "Terrain de soccer"]
     },
     {
         "sector": "Hull",
@@ -1725,7 +1725,7 @@
         "lat": 45.455090,
         "lng": -75.752747,
         "type": "parc",
-        "installations": ["Ballon-panier", "Bancs publics", "Chalet utilitaire", "Gradin", "Support à vélo", "Terrain de soccer"]
+        "installations": ["Ballon-panier", "Bancs publics", "Chalet utilitaire", "Gradins", "Support à vélo", "Terrain de soccer"]
     },
     {
         "sector": "Hull",
@@ -1734,7 +1734,7 @@
         "lat": 45.473064,
         "lng": -75.764442,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet utilitaire", "Gradin", "Jeux d'eau", "Murs graffitis", "Patinoire extérieure", "Pétanque", "Préau", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de planches à roulette", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet utilitaire", "Gradins", "Jeux d'eau", "Murs graffitis", "Patinoire extérieure", "Pétanque", "Préau", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de planches à roulette", "Terrain de soccer"]
     },
     {
         "sector": "Hull",
@@ -1752,7 +1752,7 @@
         "lat": 45.462814,
         "lng": -75.756851,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet utilitaire", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Bancs publics", "Chalet utilitaire", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Hull",
@@ -1761,7 +1761,7 @@
         "lat": 45.424976,
         "lng": -75.759109,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet utilitaire", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Support à vélo", "Tables de pique-nique"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet utilitaire", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Support à vélo", "Tables de pique-nique"]
     },
     {
         "sector": "Hull",
@@ -1860,7 +1860,7 @@
         "lat": 45.398346,
         "lng": -75.784813,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet utilitaire", "Courts de tennis", "Croquet", "Gradin", "Murs graffitis", "Patinoire extérieure", "Plage", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de volleyball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Chalet utilitaire", "Courts de tennis", "Croquet", "Gradins", "Murs graffitis", "Patinoire extérieure", "Plage", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball", "Terrain de volleyball"]
     },
     {
         "sector": "Hull",
@@ -1869,7 +1869,7 @@
         "lat": 45.458309,
         "lng": -75.763954,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet utilitaire", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de soccer"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Chalet utilitaire", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de soccer"]
     },
     {
         "sector": "Hull",
@@ -1905,7 +1905,7 @@
         "lat": 45.438854,
         "lng": -75.723785,
         "type": "parc",
-        "installations": ["Chalet utilitaire", "Courts de tennis", "Gradin", "Support à vélo", "Terrain de planches à roulette", "Terrain de soccer"]
+        "installations": ["Chalet utilitaire", "Courts de tennis", "Gradins", "Support à vélo", "Terrain de planches à roulette", "Terrain de soccer"]
     },
     {
         "sector": "Hull",
@@ -1941,7 +1941,7 @@
         "lat": 45.428490,
         "lng": -75.721588,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Gradin", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Ballon-panier", "Bancs publics", "Centre communautaire", "Gradins", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Hull",
@@ -1968,7 +1968,7 @@
         "lat": 45.428562,
         "lng": -75.732254,
         "type": "parc",
-        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Centre communautaire", "Chalet utilitaire", "Gradin", "Pataugeoire extérieure", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
+        "installations": ["Balançoires pour bébés", "Balançoires pour enfants", "Centre communautaire", "Chalet utilitaire", "Gradins", "Pataugeoire extérieure", "Patinoire extérieure", "Structure de jeu pour les 2-5 ans", "Structure de jeu pour les 5-12 ans", "Support à vélo", "Tables de pique-nique", "Terrain de baseball"]
     },
     {
         "sector": "Hull",
@@ -2013,7 +2013,7 @@
         "lat": 45.462696,
         "lng": -75.770058,
         "type": "parc",
-        "installations": ["Centre communautaire", "Gradin", "Piste d'athlétisme", "Ski de fond", "Support à vélo", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Centre communautaire", "Gradins", "Piste d'athlétisme", "Ski de fond", "Support à vélo", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Hull",
@@ -2103,7 +2103,7 @@
         "lat": 45.526016,
         "lng": -75.488861,
         "type": "parc",
-        "installations": ["Bancs publics", "Centre communautaire", "Chalet de service", "Fer à cheval", "Gradin", "Jeux d'eau", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette"]
+        "installations": ["Bancs publics", "Centre communautaire", "Chalet de service", "Fer à cheval", "Gradins", "Jeux d'eau", "Tables de pique-nique", "Terrain de baseball", "Terrain de planches à roulette"]
     },
     {
         "sector": "Masson-Angers",
@@ -2112,7 +2112,7 @@
         "lat": 45.542992,
         "lng": -75.414780,
         "type": "parc",
-        "installations": ["Bancs publics", "Chalet de service", "Courts de tennis", "Gradin", "Piscine extérieure", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
+        "installations": ["Bancs publics", "Chalet de service", "Courts de tennis", "Gradins", "Piscine extérieure", "Tables de pique-nique", "Terrain de baseball", "Terrain de soccer"]
     },
     {
         "sector": "Masson-Angers",
