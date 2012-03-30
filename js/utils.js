@@ -1,18 +1,21 @@
-function ajax(url, callback) {
-    var request = window.XMLHttpRequest?
-        new XMLHttpRequest() :
-        new ActiveXObject('Microsoft.XMLHTTP');
-
-    request.onreadystatechange = function() {
-        if (request.readyState == 4) {
-            callback(request, request.status);
-        }
-    };
-    request.open('GET', url, true);
-    request.send(null);
-}
 
 function on(el, eventName, handler) {
     var hasAddEventListener = !!window.addEventListener;
     el[hasAddEventListener? 'addEventListener' : 'attachEvent']((hasAddEventListener? '' : 'on') + eventName, handler);
+}
+
+// - c7n prefix stands for collation -
+// compare strings accounting for collation (lowercase/no accents)
+function c7nCompare(a,b){
+    return String(a).toLowerCase().localeCompare(String(b).toLowerCase())
+}
+// sorts keys of the hash accounting for collation (lowercase/no accents)
+function c7nSortedHashKeys(hash){
+    var sorted=[]
+    $.each(hash,function(key){
+        sorted.push(key);
+    });
+    // should used proper collation Ecole > ZZ
+    sorted.sort(c7nCompare);
+    return sorted;
 }

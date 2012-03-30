@@ -28,45 +28,51 @@ App = (function () {
         cachedMarkers = null,
         searchInput, map, infoWindow, markerClusterer;
     
+    /*
+      filters marker so that,
+       any (OR) sector selection match
+       all (AND) installation selections match
+    */
     function filterMarkers(markers,callback){
         // console.log('-----')
         // console.log('clientFilter activeFilters',JSON.stringify(activeFilters,null));
         var filteredMarkers=[];
         $.each(markers,function(i,marker){
             // filter each marker against active Filters
-            var reject=false;
+            var hasAtLeastOneSector=false;
+            var accept=false;
             $.each(activeFilters.sectors,function(sector,_ignore){
-                // console.log('testing sector',i,marker.sector,sector);
-                if (!(marker.sector==sector)){
-                    // console.log('sector MISMATCH',sector);
-                    reject=true;
+                hasAtLeastOneSector=true;
+                if (marker.sector==sector){
+                    accept=true;
                     return false;// break the foreach loop
                 }
             });
+
+            // reject by sector: at least on sector is checked, and NO selected sectors match
+            var reject= hasAtLeastOneSector && !accept;
+
+            // reject by installation: reject if any selected installation is not present
             $.each(activeFilters.installations,function(installation,_ignore){
-                // console.log('testing installation',i,installation);
                 if (!marker.hasInstalltion[installation]){
                     reject=true;
                     return false;// break the foreach loop
                 }
             });
 
-            // if (Math.random()>.5) filteredMarkers.push(marker);
             if (!reject) filteredMarkers.push(marker);
         });
-        // console.log('filtered markers',filteredMarkers.length);
+        console.log('filtered markers',filteredMarkers.length);
         callback(filteredMarkers,200);
     }
-    function sortHashKeys(hash){
-        var sorted=[]
-        $.each(hash,function(key){
-            sorted.push(key);
-        });
-        // should used proper collation Ecole > ZZ
-        sorted.sort();
-        return sorted;
-    }
-    function firstInit(markers){
+    
+    /*
+      This function prepares the marker data by:
+        -transforming the marker.installations array into marker.hasInstallation lookup hash
+        -find all sectors and installtions (in the markers)
+        -injecting a sorted list of sectors and installations as appropriate chackboxes
+    */
+    function makerPostProcessing(markers){
       var allSectors={};
       var allInstallations={};
       $.each(markers,function(i,marker){
@@ -74,7 +80,7 @@ App = (function () {
         // tokenize installations
         if (!marker.hasInstalltion){
           marker.hasInstalltion={}
-          var installations = marker.installations.split(/\s*,\s*/);
+          var installations = marker.installations;
           $.each(installations,function(i,installation){
             allInstallations[installation]=true;
             marker.hasInstalltion[installation]=true;
@@ -83,20 +89,20 @@ App = (function () {
       });
       
       // sort and insert sector checkboxes
-      var sortedSectors=sortHashKeys(allSectors);
+      var sortedSectors=c7nSortedHashKeys(allSectors);
       var $sector=$('#sectors');
       $.each(sortedSectors,function(i,sector){
-        console.log('sector',i,sector);
+        // console.log('sector',i,sector);
         $sector.append($('<input type="checkbox" name="sector" value="'+sector+'"/> <span>'+sector+'</span>'))
       });
 
       // sort and insert installation checkboxes
-      var sortedInstallations=sortHashKeys(allInstallations);
+      var sortedInstallations=c7nSortedHashKeys(allInstallations);
       var $trows=$();
       var $tr=null;
       $.each(sortedInstallations,function(i,installation){
         if ((i%6)==0) { $tr = $('<tr />'); $trows = $trows.add($tr); }
-        console.log('installation',i,installation);
+        // console.log('installation',i,installation);
         // <td><input type="checkbox" name="installation" value="Aréna"/> Aréna</td>
         $tr.append($('<td><input type="checkbox" name="installation" value="'+installation+'"/> '+installation+'</td>'))
       });
@@ -115,7 +121,7 @@ App = (function () {
         } else {          
           $.getJSON('data/markers.json',function(data){
             cachedMarkers=data;
-            firstInit(cachedMarkers);
+            makerPostProcessing(cachedMarkers);
             filterMarkers(cachedMarkers,callback);
           }).error(function() { /*no error handler for now*/ });
         }
