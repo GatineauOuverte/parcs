@@ -11,7 +11,7 @@
     {
         "sector": "Aylmer",
         "name": "Aquamarine",
-        "address": "Rue du Tamarac/Place de la berge",
+        "address": "Rue du Tamarac/Place de la Berge",
         "lat": 45.386131,
         "lng": -75.846802,
         "type": "parc",
@@ -145,7 +145,7 @@
     },
     {
         "sector": "Aylmer",
-        "name": "Croissant-Terrase Est",
+        "name": "Croissant-Terrasse Est",
         "address": "Rue de la Terrasse",
         "lat": 45.394096,
         "lng": -75.833572,
@@ -235,7 +235,7 @@
     },
     {
         "sector": "Aylmer",
-        "name": "Jardin-Lavigne",
+        "name": "Jardins-Lavigne",
         "address": "Rue du Bois-Franc et avenue des Pinacées",
         "lat": 45.417622,
         "lng": -75.839790,
