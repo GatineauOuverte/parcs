@@ -1,7 +1,6 @@
-$(function(){
-  // console.log('jQuery ready');
-  App.init();
-})
+$(function(){ // jQuery .ready handler
+    App.init();
+});
 App = (function () {
     "use strict";
     
@@ -29,42 +28,43 @@ App = (function () {
         cachedMarkers = null,
         searchInput, map, infoWindow, markerClusterer;
     
-    function clientFilter(markers,callback){
-      // console.log('-----')
-      // console.log('clientFilter activeFilters',JSON.stringify(activeFilters,null));
-      var filteredMarkers=[];
-      $.each(markers,function(i,marker){
-        // filter each marker against active Filters
-        var reject=false;
-        $.each(activeFilters.sectors,function(sector,_ignore){
-          // console.log('testing sector',i,marker.sector,sector);
-          if (!(marker.sector==sector)){
-            // console.log('sector MISMATCH',sector);
-            reject=true;
-            return false;// break the foreach loop
-          }
+    function filterMarkers(markers,callback){
+        // console.log('-----')
+        // console.log('clientFilter activeFilters',JSON.stringify(activeFilters,null));
+        var filteredMarkers=[];
+        $.each(markers,function(i,marker){
+            // filter each marker against active Filters
+            var reject=false;
+            $.each(activeFilters.sectors,function(sector,_ignore){
+                // console.log('testing sector',i,marker.sector,sector);
+                if (!(marker.sector==sector)){
+                    // console.log('sector MISMATCH',sector);
+                    reject=true;
+                    return false;// break the foreach loop
+                }
+            });
+            $.each(activeFilters.installations,function(installation,_ignore){
+                // console.log('testing installation',i,installation);
+                if (!marker.hasInstalltion[installation]){
+                    reject=true;
+                    return false;// break the foreach loop
+                }
+            });
+
+            // if (Math.random()>.5) filteredMarkers.push(marker);
+            if (!reject) filteredMarkers.push(marker);
         });
-        $.each(activeFilters.installations,function(installation,_ignore){
-          // console.log('testing installation',i,installation);
-          if (!marker.hasInstalltion[installation]){
-            reject=true;
-            return false;// break the foreach loop
-          }
-        });
-        
-        // if (Math.random()>.5) filteredMarkers.push(marker);
-        if (!reject) filteredMarkers.push(marker);
-      });
-      // console.log('filtered markers',filteredMarkers.length);
-      callback(filteredMarkers,200);
+        // console.log('filtered markers',filteredMarkers.length);
+        callback(filteredMarkers,200);
     }
     function sortHashKeys(hash){
-      var sorted=[]
-      $.each(hash,function(key){
-        sorted.push(key);
-      });
-      sorted.sort();
-      return sorted;
+        var sorted=[]
+        $.each(hash,function(key){
+            sorted.push(key);
+        });
+        // should used proper collation Ecole > ZZ
+        sorted.sort();
+        return sorted;
     }
     function firstInit(markers){
       var allSectors={};
@@ -103,24 +103,21 @@ App = (function () {
       var $installationsTbl=$('#installations table');
       $installationsTbl.append($trows);
     }
-    function getMarkers(criterias, callback) {
-        criterias = criterias || '';
-        
-        /* previous server side - php criteria filtering 
-        ajax('php/markers.php?' + criterias, function (request, status) {  
-            callback(JSON.parse(request.responseText), status);
-        });
-        */
+    
+    /* Fetches markers if not already cached
+      then calls the filterMarkers
+      the fetched data is stored in cachedMarkers instance variable
+    */
+    function getMarkers(callback) {
         if (cachedMarkers){
           // console.log('markers are cached');
-          clientFilter(cachedMarkers,callback);
-        } else {
-          
+          filterMarkers(cachedMarkers,callback);
+        } else {          
           $.getJSON('data/markers.json',function(data){
             cachedMarkers=data;
             firstInit(cachedMarkers);
-            clientFilter(cachedMarkers,callback);
-          });
+            filterMarkers(cachedMarkers,callback);
+          }).error(function() { /*no error handler for now*/ });
         }
     }
     
@@ -193,9 +190,9 @@ App = (function () {
         addMarkers(markers);
     }
     
-    function filterMarkers(criterias) {
+    function refreshMarkers() {
         removeAllMarkers();
-        getMarkers(criterias, onMarkersLoad);
+        getMarkers(onMarkersLoad);
     }
     
     function updateFilter(type, id, clear) {
@@ -217,43 +214,21 @@ App = (function () {
                 return;
             }
             
-            updateFilter(target.name, target.value, !target.checked);
-            
-            filterMarkers(buildCriterias());
+            updateFilter(target.name, target.value, !target.checked);            
+            refreshMarkers();
         });
         
-        //TODO: Free-text filterMarkers function
+        //TODO: Free-text refreshMarkers function
         /*
         on(searchInput, 'keypress', function (e) {
             if (e.keyCode && e.keyCode === 13) {
-                filterMarkers(buildCriterias() + '&query=' + searchInput.value);
+                updateFilter(..buildCriterias() + '&query=' + searchInput.value...);                            
+                refreshMarkers();
             }
         });
         */
     }
-    
-    function buildCriterias() {
         
-        var sectors = activeFilters.sectors,
-            installations = activeFilters.installations,
-            installationsParams = '',
-            sectorsParams = '',
-            key;
-            
-        for (key in sectors) {
-            sectorsParams += key + ',';
-        }
-        
-        for (key in installations) {
-            installationsParams += key + ',';
-        }
-        
-        return encodeURI(
-            (installationsParams === ''? '' : 'installations=' + installationsParams.slice(0, -1))
-            + (sectorsParams === ''? '' : (installationsParams? '&' : '') + 'sectors=' + sectorsParams.slice(0, -1))
-        );
-    }
-    
     return {
         init: function () {
             
@@ -274,7 +249,7 @@ App = (function () {
                 focusedMarker = null;
             });
             
-            filterMarkers('');
+            refreshMarkers();
             
             //searchInput = document.getElementById('filterMarkers-input');
             
