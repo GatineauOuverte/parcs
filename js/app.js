@@ -62,7 +62,7 @@ App = (function () {
 
             if (!reject) filteredMarkers.push(marker);
         });
-        console.log('filtered markers',filteredMarkers.length);
+        // console.log('filtered markers',filteredMarkers.length);
         callback(filteredMarkers,200);
     }
     
