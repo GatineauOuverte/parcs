@@ -857,7 +857,7 @@
     {
         "sector": "Gatineau",
         "name": "Draveurs, des",
-        "address": "boulevard de la Gappe",
+        "address": "Boulevard de la Gappe",
         "lat": 45.474697,
         "lng": -75.710350,
         "type": "parc",
@@ -1361,7 +1361,7 @@
     {
         "sector": "Gatineau",
         "name": "Saint-Gérard",
-        "address": "boulevard Maloney Est",
+        "address": "Boulevard Maloney Est",
         "lat": 45.494911,
         "lng": -75.581039,
         "type": "parc",
@@ -1550,7 +1550,7 @@
     {
         "sector": "Hull",
         "name": "Centre communautaire Reboul",
-        "address": "boulevard Sacré-Cœur",
+        "address": "Boulevard Sacré-Cœur",
         "lat": 45.438057,
         "lng": -75.713501,
         "type": "parc",
@@ -1577,7 +1577,7 @@
     {
         "sector": "Hull",
         "name": "Chars de combat, Des",
-        "address": "boulevard Saint-Joseph",
+        "address": "Boulevard Saint-Joseph",
         "lat": 45.427914,
         "lng": -75.732315,
         "type": "parc",
@@ -1874,7 +1874,7 @@
     {
         "sector": "Hull",
         "name": "Pionniers, des",
-        "address": "boulevard Saint-Raymond",
+        "address": "Boulevard Saint-Raymond",
         "lat": 45.422852,
         "lng": -75.763565,
         "type": "parc",
@@ -1901,7 +1901,7 @@
     {
         "sector": "Hull",
         "name": "Ruisseau, du (secteur de Hull)",
-        "address": "boulevard Montclair et rue Saint-Rédempteur",
+        "address": "Boulevard Montclair et rue Saint-Rédempteur",
         "lat": 45.438854,
         "lng": -75.723785,
         "type": "parc",
@@ -1910,7 +1910,7 @@
     {
         "sector": "Hull",
         "name": "Saint-Benoît",
-        "address": "boulevard Lionel-Émond",
+        "address": "Boulevard Lionel-Émond",
         "lat": 45.437267,
         "lng": -75.746628,
         "type": "parc",
@@ -1964,7 +1964,7 @@
     {
         "sector": "Hull",
         "name": "Saint-Jean Bosco",
-        "address": "boulevard Saint-Joseph",
+        "address": "Boulevard Saint-Joseph",
         "lat": 45.428562,
         "lng": -75.732254,
         "type": "parc",
@@ -1982,7 +1982,7 @@
     {
         "sector": "Hull",
         "name": "Sentier de l'Ile",
-        "address": "boulevard des Allumettières",
+        "address": "Boulevard des Allumettières",
         "lat": 45.432686,
         "lng": -75.713287,
         "type": "parc",
