@@ -187,18 +187,9 @@ App = (function () {
         }
     }
     
-    function onMarkersLoad(markers, status) {
-        if (status !== 200) {
-            //TODO: Handle error
-            return;
-        }
-        
-        addMarkers(markers);
-    }
-    
     function refreshMarkers() {
         removeAllMarkers();
-        getMarkers(onMarkersLoad);
+        getMarkers(addMarkers);
     }
     
     function updateFilter(type, id, clear) {
