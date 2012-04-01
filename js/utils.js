@@ -1,18 +1,17 @@
-
-function on(el, eventName, handler) {
-    var hasAddEventListener = !!window.addEventListener;
-    el[hasAddEventListener? 'addEventListener' : 'attachEvent']((hasAddEventListener? '' : 'on') + eventName, handler);
-}
-
-// - c7n prefix stands for collation -
-// compare strings accounting for collation (lowercase/no accents)
-function c7nCompare(a,b){
+/**
+ * Compare strings accounting for collation (lowercase/no accents)
+ * - c7n prefix stands for collation -
+ */
+function c7nCompare(a, b) {
     return String(a).toLowerCase().localeCompare(String(b).toLowerCase())
 }
-// sorts keys of the hash accounting for collation (lowercase/no accents)
-function c7nSortedHashKeys(hash){
-    var sorted=[]
-    $.each(hash,function(key){
+
+/**
+ * Sorts keys of the hash accounting for collation (lowercase/no accents)
+ */
+function c7nSortedHashKeys(hash) {
+    var sorted = []
+    $.each(hash, function (key) {
         sorted.push(key);
     });
     // should used proper collation Ecole > ZZ
