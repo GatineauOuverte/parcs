@@ -27,7 +27,27 @@ App = (function () {
             installations: {}
         },
         cachedMarkers = null,
+        defaultLocale = 'fr',
+        locale = localStorage.locale,
+        localeData = null,
         searchInput, map, infoWindow, markerClusterer;
+        
+    
+    var MarkerBase = {
+        hasInstallation: function (installation) {
+            if (!this.installationsMap) {
+                
+                var map = this.installationsMap = {},
+                    installations = this.installations;
+                
+                for (var i = 0, len = installations.length; i < len; i++) {
+                    map[installations[i]] = true;
+                }
+            }
+            
+            return this.installationsMap[installation] === true;
+        }
+    };
     
     /**
      * Filters marker so that,
@@ -58,7 +78,7 @@ App = (function () {
         
             // reject by installation: reject if any selected installation is not present
             $.each(installationsFilter, function (installation) {
-                if (!marker.hasInstallation[installation]) {
+                if (!marker.hasInstallation(installation)) {
                     reject = true;
                     return false; // break the foreach loop
                 }
@@ -75,15 +95,16 @@ App = (function () {
         
         var allSectors = {};
         var allInstallations = {};
+        var installations = localeData.installations;
+        
+        $.each(installations, function (k) {
+            allInstallations[installations[k]] = k;
+        });
         
         $.each(markers, function (i, marker) {
             allSectors[marker.sector] = true;
-            marker.hasInstallation = {};
-       
-            $.each(marker.installations, function (i, installation) {
-                allInstallations[installation] = true;
-                marker.hasInstallation[installation] = true;
-            });
+           
+            $.extend(marker, MarkerBase);
         });
         
         // sort and insert sector checkboxes
@@ -105,7 +126,7 @@ App = (function () {
                 $trows = $trows.add($tr);
             }
             
-            $tr.append($('<td><input type="checkbox" name="installations" value="' + installation + '"/> ' + installation + '</td>'));
+            $tr.append($('<td><input type="checkbox" name="installations" value="' + allInstallations[installation] + '"/> ' + installation + '</td>'));
         });
         
         $('#installations table').append($trows);
@@ -128,8 +149,26 @@ App = (function () {
         }
     }
     
+    /**
+     * Load the locale data.
+     */
+    function loadLocaleData(success, error) {
+        $.getJSON('data/' + locale + '.json', function (data) {
+            localeData = data;
+            
+            success && success(data);
+        }).error(error);
+    }
+    
     function onMarkerClick() {
-        var data = this._data;
+        var data = this._data,
+            installations = data.installations,
+            i18nInstallations = localeData.installations,
+            installationNames = [];
+            
+        for (var i = 0, len = installations.length; i < len; i++) {
+            installationNames.push('<li>' + i18nInstallations[installations[i]]);
+        }
         
         if (focusedMarker) {
             focusedMarker.setAnimation(null);
@@ -138,9 +177,12 @@ App = (function () {
         focusedMarker = this;
         
         infoWindow.setContent([
-            '<b>', data.name, '</b><br>',
-            data.address, '<br>',
-            data.installations
+            '<div class="info-window-content">',
+                '<b>', data.name, '</b><br>',
+                data.address, '<br>',
+                '<b>', localeData.labels.installations, '</b>',
+                '<ul>', installationNames.join('</li>'), '</ul>',
+            '</div>'
         ].join(''));
         
         infoWindow.open(map, this);
@@ -216,9 +258,40 @@ App = (function () {
         });
         
     }
+    
+    function initLocale() {
+        var urlLocale = getURLParams()['locale'];
+        
+        if (urlLocale && !isValidLocale(urlLocale)) {
+            urlLocale = defaultLocale;
+        }
+        
+        locale = urlLocale? (localStorage.locale = urlLocale) : (locale || defaultLocale);
+    }
+    
+    function isValidLocale(locale) {
+        return ['fr', 'en'].indexOf(locale) !== -1;
+    }
+    
+    function updateLabels() {
+        var nodes = document.querySelectorAll('[data-label]'),
+            labels = localeData.labels,
+            node;
+        
+        for (var i = 0, len = nodes.length; i < len; i++) {
+            (node = nodes[i]).innerHTML = labels[node.getAttribute('data-label')];
+        }
+    }
         
     return {
         init: function () {
+            
+            initLocale();
+            
+            if (!localeData) {
+                loadLocaleData(this.init.bind(this));
+                return;
+            }
             
             map = new GMap.Map(document.getElementById("map"), {
                 center: new GLatLng(45.486740, -75.633217),
@@ -233,6 +306,8 @@ App = (function () {
             infoWindow = new GMap.InfoWindow();
             
             installListeners();
+            
+            updateLabels();
             
             refreshMarkers();
         }

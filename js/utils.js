@@ -18,3 +18,22 @@ function c7nSortedHashKeys(hash) {
     sorted.sort(c7nCompare);
     return sorted;
 }
+
+/**
+ * Returns a hash that contains all the url params.
+ */
+function getURLParams() {
+    var searchString = window.location.search.substring(1),
+        params = searchString.split("&"),
+        hash = {};
+
+    for (var i = 0, len = params.length; i < len; i++) {
+        var val = params[i].split("="),
+            key = val[0];
+        
+        if (key) {
+            hash[key.toLowerCase()] = val[1].toLowerCase();
+        }
+    }
+    return hash;
+}
