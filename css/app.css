@@ -69,6 +69,7 @@ td.space-hog {
 .info-window-content ul {
 	margin-top: 5px;
 	padding-left: 10px;
+	list-style: none;
 }
 
 .info-window-content b {
