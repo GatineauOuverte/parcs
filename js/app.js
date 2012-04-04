@@ -294,7 +294,7 @@ App = (function () {
             initLocale();
             
             if (!localeData) {
-                loadLocaleData(this.init.bind(this));
+                loadLocaleData(this.init);
                 return;
             }
             
