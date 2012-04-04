@@ -185,7 +185,7 @@ App = (function () {
             '<div class="info-window-content">',
                 '<b>', data.name, '</b><br>',
                 data.address, '<br>',
-                '<b>', localeData.labels.installations, '</b>',
+                '<b1>', localeData.labels.installations, '</b1>',
                 '<ul>', listContentHtml, '</ul>',
             '</div>'
         ].join(''));
