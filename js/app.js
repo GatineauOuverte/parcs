@@ -161,13 +161,18 @@ App = (function () {
     }
     
     function onMarkerClick() {
+        
+        if (focusedMarker === this) {
+            return;
+        }
+        
         var data = this._data,
             installations = data.installations,
             i18nInstallations = localeData.installations,
-            installationNames = [];
+            listContentHtml = '';
             
         for (var i = 0, len = installations.length; i < len; i++) {
-            installationNames.push('<li>' + i18nInstallations[installations[i]]);
+            listContentHtml += '<li>' + i18nInstallations[installations[i]] + '</li>';
         }
         
         if (focusedMarker) {
@@ -181,7 +186,7 @@ App = (function () {
                 '<b>', data.name, '</b><br>',
                 data.address, '<br>',
                 '<b>', localeData.labels.installations, '</b>',
-                '<ul>', installationNames.join('</li>'), '</ul>',
+                '<ul>', listContentHtml, '</ul>',
             '</div>'
         ].join(''));
         
