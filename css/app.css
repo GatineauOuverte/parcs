@@ -77,6 +77,15 @@ td.space-hog {
 	display: inline-block;
 }
 
+.info-window-content b1 {
+
+	color: green;
+	font-weight: bold;
+	font-size: 9pt ; 
+	margin-top: 10px;
+	display: inline-block;
+}
+
 .info-window-content b:first-child {
 	margin-top: 0;
 }
