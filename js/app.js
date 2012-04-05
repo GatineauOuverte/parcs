@@ -183,9 +183,8 @@ App = (function () {
         
         infoWindow.setContent([
             '<div class="info-window-content">',
-                '<b>', data.name, '</b><br>',
-                data.address, '<br>',
-                '<b1>', localeData.labels.installations, '</b1>',
+                '<b>', data.name, '</b>',
+                '<p>', data.address, '</p>',
                 '<ul>', listContentHtml, '</ul>',
             '</div>'
         ].join(''));
