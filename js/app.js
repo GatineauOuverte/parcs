@@ -183,9 +183,8 @@ App = (function () {
         
         infoWindow.setContent([
             '<div class="info-window-content">',
-                '<b>', data.name, '</b><br>',
-                data.address, '<br>',
-                '<b1>', localeData.labels.installations, '</b1>',
+                '<b>', data.name, '</b>',
+                '<p>', data.address, '</p>',
                 '<ul>', listContentHtml, '</ul>',
             '</div>'
         ].join(''));
@@ -257,6 +256,10 @@ App = (function () {
             refreshMarkers();
         });
         
+        $('#about-button').on('click', function (e) {
+            showAboutDialog();
+        });
+        
         GEvent.addListener(infoWindow, 'closeclick', function () {
             focusedMarker.setAnimation(null);
             focusedMarker = null;
@@ -287,6 +290,21 @@ App = (function () {
             (node = nodes[i]).innerHTML = labels[node.getAttribute('data-label')];
         }
     }
+    
+    function showAboutDialog() {
+        
+        $('#about-dialog').dialog({
+            autoOpen: false,
+            modal: true,
+            title: localeData.labels.about
+        });
+        
+        showAboutDialog = function () {
+            $('#about-dialog').dialog('open');
+        };
+        
+        showAboutDialog();
+    }
         
     return {
         init: function () {
@@ -297,6 +315,8 @@ App = (function () {
                 loadLocaleData(this.init);
                 return;
             }
+            
+            document.getElementById('locale-link').href = '?locale=' + (locale === 'fr' ? 'en' : 'fr');
             
             map = new GMap.Map(document.getElementById("map"), {
                 center: new GLatLng(45.486740, -75.633217),
