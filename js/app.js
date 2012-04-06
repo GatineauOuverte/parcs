@@ -297,6 +297,8 @@ App = (function () {
                 return;
             }
             
+            document.getElementById('locale-link').href = '?locale=' + (locale === 'fr' ? 'en' : 'fr');
+            
             map = new GMap.Map(document.getElementById("map"), {
                 center: new GLatLng(45.486740, -75.633217),
                 zoom: 11,

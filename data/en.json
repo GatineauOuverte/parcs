@@ -2,7 +2,8 @@
   "labels" : {
     "pageTitle" : "Parks and Green Spaces Gatineau - Gatineau Ouverte",
     "sectors" : "Sectors:",
-    "installations" : "Installations:"
+    "installations" : "Installations:",
+    "localeLinkText": "Français"
   },
   "installations" : {
     "Arena" : "Arena",
