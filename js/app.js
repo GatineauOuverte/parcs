@@ -256,6 +256,10 @@ App = (function () {
             refreshMarkers();
         });
         
+        $('#about-button').on('click', function (e) {
+            showAboutDialog();
+        });
+        
         GEvent.addListener(infoWindow, 'closeclick', function () {
             focusedMarker.setAnimation(null);
             focusedMarker = null;
@@ -285,6 +289,21 @@ App = (function () {
         for (var i = 0, len = nodes.length; i < len; i++) {
             (node = nodes[i]).innerHTML = labels[node.getAttribute('data-label')];
         }
+    }
+    
+    function showAboutDialog() {
+        
+        $('#about-dialog').dialog({
+            autoOpen: false,
+            modal: true,
+            title: localeData.labels.about
+        });
+        
+        showAboutDialog = function () {
+            $('#about-dialog').dialog('open');
+        };
+        
+        showAboutDialog();
     }
         
     return {

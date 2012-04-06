@@ -3,7 +3,8 @@
         "pageTitle": "Parcs et Espaces Verts Gatineau - Gatineau Ouverte",
         "sectors": "Secteurs:",
         "installations": "Installations:",
-        "localeLinkText": "English"
+        "localeLinkText": "English",
+        "about": "À propos"
     },
     "installations": {
         "Arena": "Aréna",
