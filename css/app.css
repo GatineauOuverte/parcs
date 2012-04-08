@@ -39,7 +39,7 @@ td {
 
 
 .td1 {
-	width: 325px;
+	width: 225px;
 }
 
 .td2 {
@@ -157,9 +157,10 @@ div[style*="opacity: 0.7"] {
 }
 
 #header-actions {
-	text-align: right;
-	width: 250px;
+	text-align: left;
+	width: 150px;
 	font-size: 15px;
+	
 }
 
 #header-actions a {
