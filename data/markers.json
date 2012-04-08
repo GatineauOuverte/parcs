@@ -1857,8 +1857,8 @@
         "sector": "Hull",
         "name": "Moussette",
         "address": "361, boulevard de Lucerne",
-        "lat": 45.398346,
-        "lng": -75.784813,
+        "lat": 45.419715,
+        "lng": -75.748245,
         "type": "parc",
         "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "CentreCommunautaire", "ChaletUtilitaire", "CourtsTennis", "Croquet", "Gradins", "MursGraffitis", "PatinoireExt", "Plage", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainBaseball", "TerrainVolleyball"]
     },
