@@ -2,7 +2,9 @@
   "labels" : {
     "pageTitle" : "Parks and Green Spaces Gatineau - Gatineau Ouverte",
     "sectors" : "Sectors:",
-    "installations" : "Installations:"
+    "installations" : "Installations:",
+    "localeLinkText": "Français",
+    "about": "About"
   },
   "installations" : {
     "Arena" : "Arena",
@@ -17,7 +19,7 @@
     "Croquet" : "Croquet",
     "EspacesCaravaning" : "RV park spaces",
     "FerCheval" : "Horseshoe",
-    "Galet" : "Pebble",
+    "Galet" : "Pebbles",
     "Glissade" : "Slides/Tobogan",
     "Gradins" : "Stands",
     "JeuxdEau" : "Water games",
