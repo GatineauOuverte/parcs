@@ -4,7 +4,8 @@
         "sectors": "Secteurs:",
         "installations": "Installations:",
         "localeLinkText": "English",
-        "about": "À propos"
+        "about": "À propos",
+        "aboutContent":"Si vous avez des questions, commentaires, suggestions ou corrections, écrivez nous à <a href='mailto:info@gatineauouverte.org'>info@gatineauouverte.org</a>"
     },
     "installations": {
         "Arena": "Aréna",
