@@ -460,7 +460,7 @@
     },
     {
         "sector": "Buckingham",
-        "name": "Anciens Combattans, des",
+        "name": "Anciens Combattants, des",
         "address": "95, rue Maclaren Ouest",
         "lat": 45.585918,
         "lng": -75.419968,
@@ -506,7 +506,7 @@
     {
         "sector": "Buckingham",
         "name": "Complexe communautaire et culturel",
-        "address": "180. Joseph",
+        "address": "180, Joseph",
         "lat": 45.590309,
         "lng": -75.411064,
         "type": "parc",
@@ -838,8 +838,8 @@
     },
     {
         "sector": "Gatineau",
-        "name": "Côtes des neiges",
-        "address": "Côte des neige et Louis-Collin",
+        "name": "Côtes des Neiges",
+        "address": "Côte des Neiges et Louis-Collin",
         "lat": 45.501747,
         "lng": -75.699799,
         "type": "parc",
@@ -1406,7 +1406,7 @@
     {
         "sector": "Gatineau",
         "name": "Tecumseh",
-        "address": "Chemin de la savane",
+        "address": "Chemin de la Savane",
         "lat": 45.475056,
         "lng": -75.678886,
         "type": "parc",
@@ -1423,7 +1423,7 @@
     },
     {
         "sector": "Gatineau",
-        "name": "Val-d'oise, de",
+        "name": "Val-d'Oise, de",
         "address": "Rue Pierre-Lafontaine",
         "lat": 45.478439,
         "lng": -75.703972,
@@ -1576,7 +1576,7 @@
     },
     {
         "sector": "Hull",
-        "name": "Chars de combat, Des",
+        "name": "Chars de combat, des",
         "address": "Boulevard Saint-Joseph",
         "lat": 45.427914,
         "lng": -75.732315,
@@ -1594,7 +1594,7 @@
     },
     {
         "sector": "Hull",
-        "name": "Citadelle, De la",
+        "name": "Citadelle, de la",
         "address": "Rue de la Citadelle",
         "lat": 45.474518,
         "lng": -75.758873,
@@ -1702,7 +1702,7 @@
     },
     {
         "sector": "Hull",
-        "name": "Francophonie, De la",
+        "name": "Francophonie, de la",
         "address": "Rue Montcalm",
         "lat": 45.425350,
         "lng": -75.723701,
@@ -1720,7 +1720,7 @@
     },
     {
         "sector": "Hull",
-        "name": "Guadeloupe, De la",
+        "name": "Guadeloupe, de la",
         "address": "Rue Thérien",
         "lat": 45.455090,
         "lng": -75.752747,
@@ -1729,7 +1729,7 @@
     },
     {
         "sector": "Hull",
-        "name": "Hautes-Plaines, Des",
+        "name": "Hautes-Plaines, des",
         "address": "479, boulevard des Hautes-Plaines",
         "lat": 45.473064,
         "lng": -75.764442,
@@ -2098,7 +2098,7 @@
     },
     {
         "sector": "Masson-Angers",
-        "name": "Gilles-Maissoneuve",
+        "name": "Gilles-Maisonneuve",
         "address": "1100, rue Yvon-Pichette",
         "lat": 45.526016,
         "lng": -75.488861,
