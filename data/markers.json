@@ -370,6 +370,15 @@
     },
     {
         "sector": "Aylmer",
+        "name": "Pommiers, des",
+        "address": "Rues North et de la Pommeraie",
+        "lat": 45.4001,
+        "lng": -75.8404,
+        "type": "parc",
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "Preau", "StructureJeu512", "SupportVelo", "TablesPiqueNique"]
+    },
+    {
+        "sector": "Aylmer",
         "name": "Port de Plaisance d'Aylmer",
         "address": "Rue Principale",
         "lat": 45.396160,
