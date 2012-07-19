@@ -30,8 +30,8 @@
         "sector": "Aylmer",
         "name": "Beaumont",
         "address": "Rue Beaumont",
-        "lat": 45.521999,
-        "lng": -75.766350,
+        "lat": 45.455525,
+        "lng": -75.860939,
         "type": "parc",
         "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "StructureJeu25", "StructureJeu512", "TablesPiqueNique"]
     },
