@@ -30,8 +30,8 @@
         "sector": "Aylmer",
         "name": "Beaumont",
         "address": "Rue Beaumont",
-        "lat": 45.521999,
-        "lng": -75.766350,
+        "lat": 45.455525,
+        "lng": -75.860939,
         "type": "parc",
         "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "StructureJeu25", "StructureJeu512", "TablesPiqueNique"]
     },
@@ -281,7 +281,7 @@
     {
         "sector": "Aylmer",
         "name": "Lakeview",
-        "address": "Promande Crescent",
+        "address": "Promenande Crescent",
         "lat": 45.391872,
         "lng": -75.800285,
         "type": "parc",
@@ -367,6 +367,15 @@
         "lng": -75.830521,
         "type": "parc",
         "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "PatinoireExt", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique"]
+    },
+    {
+        "sector": "Aylmer",
+        "name": "Pommiers, des",
+        "address": "Rues North et de la Pommeraie",
+        "lat": 45.4001,
+        "lng": -75.8404,
+        "type": "parc",
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "Preau", "StructureJeu512", "SupportVelo", "TablesPiqueNique"]
     },
     {
         "sector": "Aylmer",
@@ -920,7 +929,7 @@
     {
         "sector": "Gatineau",
         "name": "Gilbert-Garneau",
-        "address": "Rue Morreau",
+        "address": "Rue Moreau",
         "lat": 45.465549,
         "lng": -75.707268,
         "type": "parc",
@@ -1280,7 +1289,7 @@
     {
         "sector": "Gatineau",
         "name": "Raymond-Madore 1",
-        "address": "Rue des fleurs",
+        "address": "Rue des Fleurs",
         "lat": 45.505383,
         "lng": -75.606598,
         "type": "parc",
@@ -1289,7 +1298,7 @@
     {
         "sector": "Gatineau",
         "name": "Raymond-Monpetit",
-        "address": "Rue Migneault et montée Paiement",
+        "address": "Rue Migneault et Montée Paiement",
         "lat": 45.488541,
         "lng": -75.670822,
         "type": "parc",
@@ -1802,7 +1811,7 @@
     {
         "sector": "Hull",
         "name": "Lutins, des",
-        "address": "Rues des fées et de lutins",
+        "address": "Rues des Fées et des Lutins",
         "lat": 45.444202,
         "lng": -75.756271,
         "type": "parc",
@@ -2045,7 +2054,7 @@
     {
         "sector": "Masson-Angers",
         "name": "Armand \"Daddy\" Lacelle",
-        "address": "chemin de Masson",
+        "address": "Chemin de Masson",
         "lat": 45.546799,
         "lng": -75.422302,
         "type": "parc",
