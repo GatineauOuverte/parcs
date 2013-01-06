@@ -69,7 +69,7 @@
         "lat": 45.398369,
         "lng": -75.859177,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "ChaletService", "ChaletUtilitaire", "Gradins", "Plage", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainBaseball", "TerrainVolleyball"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "ChaletService", "ChaletUtilitaire", "Glissade", "Gradins", "Plage", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainBaseball", "TerrainVolleyball"]
     },
     {
         "sector": "Aylmer",
@@ -204,7 +204,7 @@
         "lat": 45.405132,
         "lng": -75.855766,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "CentreCommunautaire", "CourtsTennis", "Gradins", "PataugeoireExt", "PatinoireExt", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainBaseball"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "CentreCommunautaire", "CourtsTennis", "Glissade", "Gradins", "PataugeoireExt", "PatinoireExt", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainBaseball"]
     },
     {
         "sector": "Aylmer",
@@ -357,7 +357,7 @@
         "lat": 45.408981,
         "lng": -75.832260,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "Gradins", "PatinoireExt", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainSoccer"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "Glissade", "Gradins", "PatinoireExt", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainSoccer"]
     },
     {
         "sector": "Aylmer",
@@ -712,6 +712,15 @@
     },
     {
         "sector": "Gatineau",
+        "name": "Baie, de la",
+        "address": "Rue la Baie",
+        "lat": 45.459961,
+        "lng": -75.692757,
+        "type": "parc",
+        "installations": ["Glissade"]
+    },
+    {
+        "sector": "Gatineau",
         "name": "Bélisle",
         "address": "Rues Élisabeth Ouest et Laurel",
         "lat": 45.485798,
@@ -870,7 +879,7 @@
         "lat": 45.474697,
         "lng": -75.710350,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "ChaletUtilitaire", "CourtsTennis", "StructureJeu25", "StructureJeu512", "TablesPiqueNique"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "ChaletUtilitaire", "CourtsTennis", "Glissade", "StructureJeu25", "StructureJeu512", "TablesPiqueNique"]
     },
     {
         "sector": "Gatineau",
@@ -897,7 +906,7 @@
         "lat": 45.490974,
         "lng": -75.700027,
         "type": "parc",
-        "installations": ["BancsPublics", "ChaletService", "Petanque", "SupportVelo", "TablesPiqueNique", "TerrainSoccer"]
+        "installations": ["BancsPublics", "ChaletService", "Glissade", "Petanque", "SupportVelo", "TablesPiqueNique", "TerrainSoccer"]
     },
     {
         "sector": "Gatineau",
@@ -933,7 +942,7 @@
         "lat": 45.465549,
         "lng": -75.707268,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "ChaletService", "ChaletUtilitaire", "Gradins", "PatinoireExt", "StructureJeu25", "StructureJeu512", "TerrainBaseball", "TerrainPlancheRoulette", "TerrainSoccer"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "ChaletService", "ChaletUtilitaire", "Glissade", "Gradins", "PatinoireExt", "StructureJeu25", "StructureJeu512", "TerrainBaseball", "TerrainPlancheRoulette", "TerrainSoccer"]
     },
     {
         "sector": "Gatineau",
@@ -1086,7 +1095,7 @@
         "lat": 45.494827,
         "lng": -75.655594,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "StructureJeu512", "TablesPiqueNique"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "Glissade", "StructureJeu512", "TablesPiqueNique"]
     },
     {
         "sector": "Gatineau",
@@ -1212,7 +1221,7 @@
         "lat": 45.493645,
         "lng": -75.718895,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "StructureJeu512"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BancsPublics", "Glissade", "StructureJeu512"]
     },
     {
         "sector": "Gatineau",
@@ -1230,7 +1239,7 @@
         "lat": 45.485386,
         "lng": -75.691917,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "ChaletService", "CourtsTennis", "Gradins", "PatinoireExt", "Preau", "StructureJeu512", "TablesPiqueNique", "TerrainBaseball", "TerrainSoccer"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "ChaletService", "CourtsTennis", "Glissade", "Gradins", "PatinoireExt", "Preau", "StructureJeu512", "TablesPiqueNique", "TerrainBaseball", "TerrainSoccer"]
     },
     {
         "sector": "Gatineau",
@@ -1950,7 +1959,7 @@
         "lat": 45.428490,
         "lng": -75.721588,
         "type": "parc",
-        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "CentreCommunautaire", "Gradins", "PatinoireExt", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainBaseball"]
+        "installations": ["BalancoiresBebes", "BalancoiresEnfants", "BallonPanier", "BancsPublics", "CentreCommunautaire", "Glissade", "Gradins", "PatinoireExt", "StructureJeu25", "StructureJeu512", "SupportVelo", "TablesPiqueNique", "TerrainBaseball"]
     },
     {
         "sector": "Hull",
