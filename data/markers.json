@@ -712,6 +712,15 @@
     },
     {
         "sector": "Gatineau",
+        "name": "Baie, de la",
+        "address": "Rue la Baie",
+        "lat": 45.459961,
+        "lng": -75.692757,
+        "type": "parc",
+        "installations": ["Glissade"]
+    },
+    {
+        "sector": "Gatineau",
         "name": "Bélisle",
         "address": "Rues Élisabeth Ouest et Laurel",
         "lat": 45.485798,
